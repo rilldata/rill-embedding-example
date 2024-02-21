@@ -16,8 +16,12 @@ export default function Home() {
       },
     })
     .then((response) => response.json())
-    .then(({ data }) => {
-      setIframeURL(data.iframeSrc);
+    .then(({ iframeSrc, error }) => {
+      if (error !== undefined) {
+        setError(error);
+      } else {
+        setIframeURL(iframeSrc);
+      }
       setLoading(false);
     })
     .catch((err) => {
