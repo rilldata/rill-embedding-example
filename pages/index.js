@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 export default function Home() {
   // State for loading the iframe URL
   const [isLoading, setLoading] = useState(true);
-  const [iframeURL, setIframeURL] = useState('');
+  const [iframeSrc, setIframeSrc] = useState('');
   const [error, setError] = useState('');
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
@@ -20,7 +20,7 @@ export default function Home() {
       if (error !== undefined) {
         setError(error);
       } else {
-        setIframeURL(iframeSrc);
+        setIframeSrc(iframeSrc);
       }
       setLoading(false);
     })
@@ -58,7 +58,7 @@ export default function Home() {
       </Head>
       <h1>Rill Embedding Example</h1>
       <p>Below you will find an iframe that embeds a demo dashboard.</p>
-      <iframe className="iframe" src={iframeURL} />
+      <iframe className="iframe" src={iframeSrc} />
     </div>
   )
 }
