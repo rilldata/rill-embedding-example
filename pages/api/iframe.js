@@ -3,16 +3,17 @@ const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
 
 // Configure the dashboard to request an iframe URL for.
 // Note that the organization must be the same as the one the service token is associated with.
-const rillOrg = "demo";
-const rillProject = "rill-openrtb-prog-ads";
-const rillDashboard = "bids";
+const rillDomain = process.env.RILL_DOMAIN || "rilldata.com";
+const rillOrg = process.env.RILL_ORG || "demo";
+const rillProject = process.env.RILL_PROJECT || "rill-openrtb-prog-ads";
+const rillDashboard = process.env.RILL_DASHBOARD || "bids";
 
 // This is a serverless function that makes an authenticated request to the Rill API to get an iframe URL for a dashboard.
 // The iframe URL is then returned to the client.
 // Iframe URLs must be requested from the backend to prevent exposing the Rill service token to the browser.
 export default async function handler(req, res) {
     try {
-        const url = `https://admin.rilldata.com/v1/organizations/${rillOrg}/projects/${rillProject}/iframe`;
+        const url = `https://admin.${rillDomain}/v1/organizations/${rillOrg}/projects/${rillProject}/iframe`;
         const response = await fetch(url, {
             method: 'POST',
             headers: {
