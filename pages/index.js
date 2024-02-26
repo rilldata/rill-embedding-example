@@ -1,13 +1,10 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 
-const rillDomain = process.env.RILL_DOMAIN || "rilldata.com";
-
 export default function Home() {
   // State for loading the iframe URL
   const [isLoading, setLoading] = useState(true);
   const [iframeSrc, setIframeSrc] = useState('');
-  const [cspPolicy, setCspPolicy] = useState('');
   const [error, setError] = useState('');
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
@@ -24,7 +21,6 @@ export default function Home() {
         setError(error);
       } else {
         setIframeSrc(iframeSrc);
-        setCspPolicy("default-src 'self'; frame-src https://ui." + rillDomain + "; script-src https://ui." + rillDomain + "; style-src 'unsafe-inline'");
       }
       setLoading(false);
     })
@@ -58,7 +54,7 @@ export default function Home() {
       <Head>
         <title>Rill Embedding Example</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta http-equiv="Content-Security-Policy" content={cspPolicy} />
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src https://ui.rilldata.com; script-src https://ui.rilldata.com; style-src 'unsafe-inline'" />
       </Head>
       <h1>Rill Embedding Example</h1>
       <p>Below you will find an iframe that embeds a demo dashboard.</p>
