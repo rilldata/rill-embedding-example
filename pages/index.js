@@ -15,19 +15,19 @@ export default function Home() {
         'Content-Type': 'application/json',
       },
     })
-    .then((response) => response.json())
-    .then(({ iframeSrc, error }) => {
-      if (error !== undefined) {
-        setError(error);
-      } else {
-        setIframeSrc(iframeSrc);
-      }
-      setLoading(false);
-    })
-    .catch((err) => {
-      setError(err.message);
-      setLoading(false);
-    });
+      .then((response) => response.json())
+      .then(({ iframeSrc, error }) => {
+        if (error !== undefined) {
+          setError(error);
+        } else {
+          setIframeSrc(iframeSrc);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
   }, []);
 
   // Render loading state
@@ -58,7 +58,7 @@ export default function Home() {
       </Head>
       <h1>Rill Embedding Example</h1>
       <p>Below you will find an iframe that embeds a demo dashboard.</p>
-      <iframe className="iframe" src={iframeSrc} />
+      <iframe className="iframe" allow="clipboard-read; clipboard-write" src={iframeSrc} />
     </div>
   )
 }
