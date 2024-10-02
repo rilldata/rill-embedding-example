@@ -22,7 +22,7 @@ export default async function handler(req, res) {
             body: JSON.stringify({
                 resource: rillDashboard,
                 // You can pass additional parameters for row-level security policies here.
-                // For details, see: https://docs.rilldata.com/integration/embedding
+                // For details, see: https://docs.rilldata.com/integrate/embedding
             }),
         });
         const data = await response.json();
