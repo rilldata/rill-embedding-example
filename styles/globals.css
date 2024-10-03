@@ -22,3 +22,15 @@ html, body, #__next {
   flex-grow: 1;
   border: 1px solid #000;
 }
+
+
+.canvas_iframe {
+  flex-grow: 1;
+  border: 1px solid #000;
+}
+
+
+.nav-iframe {
+  flex-grow: 1;
+  border: 1px solid #000;
+}
