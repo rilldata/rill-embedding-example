@@ -60,8 +60,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src https://ui.rilldata.com; script-src https://ui.rilldata.com; style-src 'unsafe-inline'" />
       </Head>
-      <h1>Rill Embedding Example</h1>
-      <p>Below you will find an iframe that embeds a demo dashboard.</p>
+      <h1>Canvas Dashboard</h1>
+      <p>Not only can you embed our classic dashboards, we also allow the ability to embed Canvas Dashboards.</p>
       <iframe className="iframe" allow="clipboard-read; clipboard-write" src={iframeSrc} />
     </div>
   );

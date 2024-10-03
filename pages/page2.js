@@ -60,8 +60,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src https://ui.rilldata.com; script-src https://ui.rilldata.com; style-src 'unsafe-inline'" />
       </Head>
-      <h1>Rill Embedding Example</h1>
-      <p>Below you will find an iframe that embeds a demo dashboard.</p>
+      <h1>Rill Embedding with Navigation Enabled</h1>
+      <p>This example demonstrates adding the navigate:true parameter to the iframe creation. Notice the Home / * in the top of the frame. Users can navigate to any of the dashboards that are available. If you want to limit the users, please review Explore with Row policies.</p>
       <iframe className="iframe" allow="clipboard-read; clipboard-write" src={iframeSrc} />
     </div>
   );
