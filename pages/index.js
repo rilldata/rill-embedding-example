@@ -17,6 +17,7 @@ export default function Home() {
       <div className="splash-header">
         <h1>Welcome to Rill Data Embed Examples</h1>
         <p>Your guide to embedding Rill Data dashboards seamlessly.</p>
+        <p> For more information, please see our <a target="_blank" href='https://github.com/rilldata/rill-embedding-example?tab=readme-ov-file'>GitHub repository</a> and our <a href='https://docs.rilldata.com/integrate/embedding' target="_blank">Documentations page.</a></p>
       </div>
       <div className="use-cases">
         <a href="/page1" className="use-case">
