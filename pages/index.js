@@ -22,7 +22,7 @@ export default function Home() {
       <div className="use-cases">
         <a href="/page1" className="use-case">
           <div className="use-case-content">
-            <h2>1. Normal Embed Use Case</h2>
+            <h2>1. Basic Embedding</h2>
             <p> <br/>
               In this example, we demonstrate how to embed Rill Data dashboards
               directly into your application. This allows users to access 
@@ -34,7 +34,7 @@ Take a look at the pages/api/iframe.js
         </a>
         <a href="/page2" className="use-case">
           <div className="use-case-content">
-            <h2>2. Embed with Navigation</h2>
+            <h2>2. Embedding with Navigation</h2>
             <p> <br/>
               This use case showcases how to incorporate navigation within the 
               embedded Rill Data dashboards, enhancing user experience by allowing 
@@ -58,7 +58,7 @@ Take a look at the pages/api/canvas-iframe.js
         </a>
         <a href="/page4" className="use-case">
           <div className="use-case-content">
-            <h2>4. Row Policy Enabled Dashboard</h2>
+            <h2>4. Dashboard Access Policy Enabled Dashboard</h2>
             <p> <br/>
               See row policies in Action! In this example 'normal embed use case', 
               we pass an email in the iframe creation request to a dashboard

@@ -56,12 +56,13 @@ export default function Home() {
     <div className="container">
       <Navbar /> 
       <Head>
-        <title>Rill Embedding Example</title>
+        <title>Rill Policy Embedding Example</title>
         <link rel="icon" href="/favicon.ico" />
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src https://ui.rilldata.com; script-src https://ui.rilldata.com; style-src 'unsafe-inline'" />
       </Head>
-      <h1>Rill Dashboard with Row Policies Enabled</h1>
+      <h1>Rill Dashboard with Dashboard Access Policies Enabled</h1>
       <p>As you begin to define row policies, you can use this logic in the iframe URL creation. Simply pass an user_id, user_email or attributes to define the access granted to the embed.</p>
+      <p>No measures will be displayed as we have prevented this on the dashboard level.</p>
       <iframe className="iframe" allow="clipboard-read; clipboard-write" src={iframeSrc} />
     </div>
   );

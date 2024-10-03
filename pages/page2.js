@@ -56,7 +56,7 @@ export default function Home() {
     <div className="container">
       <Navbar /> 
       <Head>
-        <title>Rill Embedding Example</title>
+        <title>Rill Navigation Embedding Example</title>
         <link rel="icon" href="/favicon.ico" />
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src https://ui.rilldata.com; script-src https://ui.rilldata.com; style-src 'unsafe-inline'" />
       </Head>
