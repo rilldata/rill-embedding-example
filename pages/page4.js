@@ -62,7 +62,7 @@ export default function Home() {
       </Head>
       <h1>Rill Dashboard with Dashboard Access Policies Enabled</h1>
       <p>As you begin to define row policies, you can use this logic in the iframe URL creation. Simply pass an user_id, user_email or attributes to define the access granted to the embed.</p>
-      <p>In this example, we have a row policy that checks the already used user@domain.com's domain `domain.com` to filter only the Disney Pub Name.</p>
+      <p>In this example, we have a row policy that checks for the email being sent via the iframe creation, `test@domain.com`. We created a mapping model file in the project that maps this email to the Pub Name, Disney. </p>
       <iframe className="iframe" allow="clipboard-read; clipboard-write" src={iframeSrc} />
     </div>
   );
