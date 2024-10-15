@@ -62,6 +62,7 @@ export default function Home() {
       </Head>
       <h1>Canvas Dashboard</h1>
       <p>Not only can you embed our classic dashboards, we also allow the ability to embed Canvas Dashboards.</p>
+      <h3>We are currently rebuilding this dashboard, come back soon for updates!</h3>
       <iframe className="iframe" allow="clipboard-read; clipboard-write" src={iframeSrc} />
     </div>
   );
