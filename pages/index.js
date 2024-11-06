@@ -69,6 +69,17 @@ Take a look at the pages/api/rowpol-iframe.js
             </p>
           </div>
         </a>
+        <a href="/page4" className="use-case">
+          <div className="use-case-content">
+            <h2>5. Passing Custom Attributes</h2>
+            <p> <br/>
+              How can I pass custom attributes? This might be useful if you're making a custom
+              lookup table for your row policies! <br/><br/>
+
+Take a look at the pages/api/iframe-attributes.js
+            </p>
+          </div>
+        </a>
       </div>
       <style jsx>{`
         .splash-container {

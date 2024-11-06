@@ -11,6 +11,7 @@ const Navbar = () => {
             <Link href="/page2" className={styles.link}>Explore with Navigation</Link>
             <Link href="/page3" className={styles.link}>Canvas</Link>
             <Link href="/page4" className={styles.link}>Explore with Row Policies</Link>
+            <Link href="/page5" className={styles.link}>Passing Custom Attributes</Link>
         </nav>
     );
 };
