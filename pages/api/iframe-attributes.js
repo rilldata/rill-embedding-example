@@ -22,7 +22,8 @@ export default async function handler(req, res) {
             body: JSON.stringify({
                 resource: rillDashboard,
                 attributes: {
-                    "custom_attribute_from_embed": "Value1"
+                    "custom_attribute_from_embed": "Value1",
+                    "embed_pub_name": "Disney"
                 }
                 // You can pass additional parameters for row-level security policies here.
                 // For details, see: https://docs.rilldata.com/integrate/embedding
