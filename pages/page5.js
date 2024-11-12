@@ -62,7 +62,9 @@ export default function Home() {
       </Head>
       <h1>Rill Dashboard with Dashboard Access Policies Enabled</h1>
       <p>As you begin to define row policies, you can use this logic in the iframe URL creation. Simply pass an user_id, user_email or attributes to define the access granted to the embed.</p>
-      <p>In this example, we have a row policy that checks for the email being sent via the iframe creation, `test@domain.com`. We created a mapping model file in the project that maps this email to the Pub Name, Disney. </p>
+      <p>In this example, we pass a custom attribute during the embed dashboard creation. You can pass any values via the attributes array. </p>
+      <p>In this example, <a href='https://github.com/rilldata/rill-examples/blob/main/rill-openrtb-prog-ads/metrics/metrics_view.yaml'> our row policy</a> reads in .user.custom_attribute which is defined in the following: <code>attributes: "custom_attribute_from_embed": "Value1"</code> </p>
+      <p> Checking <a href='https://github.com/rilldata/rill-examples/blob/main/rill-openrtb-prog-ads/models/test.sql'>our mapping file</a>, Value1 is linked to the PubName, Disney so only values where Pub Name = Disney is shown in the below embed dashboard.</p>
       <iframe className="iframe" allow="clipboard-read; clipboard-write" src={iframeSrc} />
     </div>
   );
