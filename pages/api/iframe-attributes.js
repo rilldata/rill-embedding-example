@@ -1,6 +1,5 @@
 // Get the secret Rill service token from an environment variable.
-//const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
-const rillServiceToken = 'rill_svc_7RbpHxRrEWX57L7kE2rFCG3YYElfcUM39rKJbf2S4UBKs0QsOF9yoD'
+const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
 
 // Configure the dashboard to request an iframe URL for.
 // Note that the organization must be the same as the one the service token is associated with.
