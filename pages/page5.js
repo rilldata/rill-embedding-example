@@ -60,7 +60,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src https://ui.rilldata.com; script-src https://ui.rilldata.com; style-src 'unsafe-inline'" />
       </Head>
-      <h1>Rill Dashboard with Dashboard Access Policies Enabled</h1>
+      <h1>Rill Dashboard with Dashboard Access Policies Enabled with Custom Attributes</h1>
       <p>As you begin to define row policies, you can use this logic in the iframe URL creation. Simply pass an user_id, user_email or attributes to define the access granted to the embed.</p>
       <p>In this example, we pass a custom attribute during the embed dashboard creation. You can pass any values via the attributes array. </p>
       <p>In this example, <a href='https://github.com/rilldata/rill-examples/blob/main/rill-openrtb-prog-ads/metrics/metrics_view.yaml'> our row policy</a> reads in .user.custom_attribute which is defined in the following: <code>attributes: "custom_attribute_from_embed": "Value1"</code> </p>
