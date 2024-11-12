@@ -1,11 +1,12 @@
 // Get the secret Rill service token from an environment variable.
-const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
+//const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
+const rillServiceToken = 'rill_svc_7RbpHxRrEWX57L7kE2rFCG3YYElfcUM39rKJbf2S4UBKs0QsOF9yoD'
 
 // Configure the dashboard to request an iframe URL for.
 // Note that the organization must be the same as the one the service token is associated with.
 const rillOrg = "demo";
 const rillProject = "rill-openrtb-prog-ads";
-const rillDashboard = "bids_data_model_metrics_explore";
+const rillDashboard = "metrics_view_explore";
 
 // This is a serverless function that makes an authenticated request to the Rill API to get an iframe URL for a dashboard.
 // The iframe URL is then returned to the client.
@@ -21,13 +22,16 @@ export default async function handler(req, res) {
             },
             body: JSON.stringify({
                 resource: rillDashboard,
+                attributes: {
+                    "custom_attribute_from_embed": "Value1"
+                }
                 // You can pass additional parameters for row-level security policies here.
                 // For details, see: https://docs.rilldata.com/integrate/embedding
             }),
         });
         const data = await response.json();
         if (response.ok) {
-            res.json(data);
+            res.json(data);a
         } else {
             throw new Error(data.message);
         }
