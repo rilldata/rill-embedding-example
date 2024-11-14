@@ -6,7 +6,7 @@ const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
 const rillOrg = "demo";
 const rillProject = "rill-openrtb-prog-ads";
 const rillDashboard = "auction_data_model_metrics_explore";
-
+  
 // This is a serverless function that makes an authenticated request to the Rill API to get an iframe URL for a dashboard.
 // The iframe URL is then returned to the client.
 // Iframe URLs must be requested from the backend to prevent exposing the Rill service token to the browser.
