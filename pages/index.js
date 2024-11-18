@@ -1,141 +1,73 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
-import Navbar from '../components/Navbar';
-import Link from 'next/link'; // Import Link from Next.js
+import Link from 'next/link';
 
 export default function Home() {
-  useEffect(() => {
-    // Any additional setup can go here
-  }, []);
-
   return (
-    <div className="splash-container">
-      <Head>
-        <title>Rill Data Embed Examples</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className="splash-header">
-        <h1>Welcome to Rill Data Embed Examples</h1>
-        <p>Your guide to embedding Rill Data dashboards seamlessly.</p>
-        <p> For more information, please see our <a target="_blank" href='https://github.com/rilldata/rill-embedding-example?tab=readme-ov-file'>GitHub repository</a> and our <a href='https://docs.rilldata.com/integrate/embedding' target="_blank">Documentations page.</a></p>
+    <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f9f9f9' }}>
+      {/* Left-Side Navigation */}
+      <div
+        style={{
+          width: '300px',
+          borderRight: '1px solid #ddd', /* Adjust for left-side navigation */
+          padding: '20px',
+          backgroundColor: '#F8F8F8',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '20px',
+        }}
+      >
+        <h2 style={{ textAlign: 'center', marginBottom: '10px' }}>
+          <Link href="/">
+            <img src='/img/rill logo indigo.png'
+                 style={{
+              width: '75px',
+              height: 'auto',
+            }}/>
+          </Link>
+        </h2>
+        <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <Link href="/page1" style={{ textDecoration: 'none', color: '#3524c7' }}>
+            Basic Embed Example
+          </Link>
+          <Link href="/page2" style={{ textDecoration: 'none', color: '#3524c7' }}>
+            Embed with Navigation
+          </Link>
+          <Link href="/page3" style={{ textDecoration: 'none', color: '#3524c7' }}>
+            Canvas Dashboard (WIP)
+          </Link>
+          <Link href="/page4" style={{ textDecoration: 'none', color: '#3524c7' }}>
+            Row Access Policy Enabled Dashboard
+          </Link>
+          <Link href="/page5" style={{ textDecoration: 'none', color: '#3524c7' }}>
+            Passing Custom Attributes via the Embed URL creation
+          </Link>
+        </nav>
       </div>
-      <div className="use-cases">
-        <a href="/page1" className="use-case">
-          <div className="use-case-content">
-            <h2>1. Basic Embedding</h2>
-            <p> <br/>
-              In this example, we demonstrate how to embed Rill Data dashboards
-              directly into your application. This allows users to access 
-              interactive data visualizations without navigating away from your site. <br/><br/>
 
-Take a look at the pages/api/iframe.js
-            </p>
-          </div>
-        </a>
-        <a href="/page2" className="use-case">
-          <div className="use-case-content">
-            <h2>2. Embedding with Navigation</h2>
-            <p> <br/>
-              This use case showcases how to incorporate navigation within the 
-              embedded Rill Data dashboards, enhancing user experience by allowing 
-              easy switching between different views and data sets. <br/><br/>
+      {/* Main Content Area */}
+      <div style={{ flex: 1, padding: '20px', display: 'flex', flexDirection: 'column' }}>
+        {/* Title Banner */}
+        <div style={{ marginBottom: '20px', textAlign: 'center', backgroundColor: '#ffffff', padding: '10px', borderRadius: '8px' }}>
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Rill Data Embed Examples</h1>
+          <p style={{ fontSize: '1rem', color: '#666' }}>Your guide to embedding Rill Data dashboards seamlessly.</p>
+        </div>
 
-              Take a look at the pages/api/nav-iframe.js
-            </p>
-          </div>
-        </a>
-        <a href="/page3" className="use-case">
-          <div className="use-case-content">
-            <h2>3. Canvas Dashboard</h2>
-            <p> <br/>
-              Explore the capabilities of the Canvas Dashboard, where users can 
-              create custom visualizations and dashboards tailored to their specific 
-              data analysis needs. <br/><br/>
+        {/* Page Content */}
+        <div style={{ flex: 1, padding: '20px', backgroundColor: '#ffffff', borderRadius: '8px', boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)' }}>
+          <h2>Please select a page in the Navigation Bar for an example of each type of Embed Dashboard.</h2>
+<br/>
+          <a href='/page1'> <b>Basic Rill Dashboard</b></a>:  A simple embed Rill dashboard example. <br/><br/>
+          <a href='/page2'> <b> Embed Dashbaord with Navigation</b></a>:  A Rill Embedded dashboard with navigation to other dashboards and project view.      <br/><br/>
+          <a href='/page3'> <b> Canvas Dashboard - Current unavailable</b></a>:  We are re-working Canvas Dashboards and will be available soon!    <br/><br/>
+          <a href='/page4'> <b> Row Access Policy Dashboard</b></a>:  Using default available parameters to pass to Rill during URL creation to filter row/columns/access    <br/><br/>
+          <a href='/page5'> <b> Row Access Policy Dashboard with Custom Attributes</b></a>:  Embed Dashboards allow for custom attributes to be passed during the URL creation process.    <br/><br/>
+          <h3> Coming soon:</h3>
+          <p> Disable Pivot Navigation</p>
+          <p> Human Readable URL State to pass during URL creation</p>
 
-Take a look at the pages/api/canvas-iframe.js
-            </p>
-          </div>
-        </a>
-        <a href="/page4" className="use-case">
-          <div className="use-case-content">
-            <h2>4. Dashboard Access Policy Enabled Dashboard</h2>
-            <p> <br/>
-              See row policies in Action! In this example 'normal embed use case', 
-              we pass an email in the iframe creation request to a dashboard
-              that has row policies enabled. <br/> No measures will be displayed based on the
-              rule defined in Rill! <br/><br/>
 
-Take a look at the pages/api/rowpol-iframe.js
-            </p>
-          </div>
-        </a>
-        <a href="/page5" className="use-case">
-          <div className="use-case-content">
-            <h2>5. Passing Custom Attributes</h2>
-            <p> <br/>
-              How can I pass custom attributes? This might be useful if you're making a custom
-              lookup table for your row policies! <br/><br/>
-
-Take a look at the pages/api/iframe-attributes.js
-            </p>
-          </div>
-        </a>
+        </div>
       </div>
-      <style jsx>{`
-        .splash-container {
-          text-align: center;
-          padding: 20px;
-          background-color: #f9f9f9;
-        }
-        .splash-header {
-          margin-bottom: 40px;
-        }
-        h1 {
-          font-size: 2.5rem;
-          color: #333;
-        }
-        p {
-          font-size: 1.2rem;
-          color: #666;
-        }
-        .use-cases {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
-          width: 100%; /* Full width of the container */
-        }
-        .use-case {
-          display: block; /* Make it block to occupy full width */
-          width: 100%; /* Full width for the link */
-          text-decoration: none; /* Remove underline */
-          color: inherit; /* Inherit text color */
-        }
-        .use-case-content {
-          background: white;
-          height: 200px;
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          padding: 20px;
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
-          transition: transform 0.2s; /* Animation effect */
-          max-width: 800px; /* Set max width for the box */
-          width: 100%; /* Ensure it takes full width */
-          margin: 0 auto; /* Center the box */
-        }
-        .use-case-content h2, 
-        .use-case-content p {
-          margin: 0; /* Remove default margins */
-          text-decoration: none; /* Ensure no underlines */
-        }
-        .use-case:hover .use-case-content {
-          transform: scale(1.02); /* Slightly scale up on hover */
-        }
-        h2 {
-          color: #0070f3;
-          margin-bottom: 10px;
-        }
-      `}</style>
     </div>
   );
 }

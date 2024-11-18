@@ -34,3 +34,13 @@ html, body, #__next {
   flex-grow: 1;
   border: 1px solid #000;
 }
+
+.rowpol-iframe {
+  flex-grow: 1;
+  border: 1px solid #000;
+}
+
+.iframe-attributes {
+  flex-grow: 1;
+  border: 1px solid #000;
+}
