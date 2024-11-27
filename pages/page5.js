@@ -117,7 +117,7 @@ export default function Page1() {
                 resource: rillDashboard,
                 attributes: {
                     "custom_attribute_from_embed": "Value1",
-                    "embed_pub_name": "Disney"
+                    "embed_pub_name": "LG USA"
                 }
                 // You can pass additional parameters for row-level security policies here.
                 // For details, see: https://docs.rilldata.com/integrate/embedding
