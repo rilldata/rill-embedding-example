@@ -15,7 +15,7 @@ export default function Page1() {
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
   useEffect(() => {
-    fetch(`/api/iframe-attributes`, {
+    fetch(`/api/no-pivot`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -78,84 +78,17 @@ export default function Page1() {
             borderRadius: '8px',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Row Access Policy with Custom Attributes Embed Dashboard</h1>
-          <p style={{ fontSize: '1rem', color: '#666' }}>Similar to `Row Access policy Embed Dashboard`, we can also pass custom attributes via the embed URL creation process. In this case, you will need to use a JSON object called attributes to pass these into Rill. Similarly, Rill at the metrics view will be able to filter to dashboard based on your defined row access policy .</p>
-          <button
-              onClick={toggleHidden}
-              style={{
-                padding: '10px 15px',
-                backgroundColor: '#3524c7',
-                color: 'white',
-                border: 'none',
-                borderRadius: '5px',
-                cursor: 'pointer',
-                marginBottom: '10px',
-              }}
-            >
-        {isHidden ? 'Show More Details' : 'Hide Details'}
-      </button>
-
-
-
-{/* Section that can be toggled */}
-{!isHidden && (
-        <div>
-          <p style={{ fontSize: '1rem', color: '#666' }}>URL embed contents</p>
-          <pre
-            style={{
-              backgroundColor: '#f4f4f4',
-              padding: '10px',
-              borderRadius: '5px',
-              overflowX: 'auto',
-              textAlign: 'left',
-              margin: '20px 0',
-            }}
-          >
-            
-            <code>
-              {`body: JSON.stringify({
-                resource: rillDashboard,
-                attributes: {
-                    "custom_attribute_from_embed": "Value1",
-                    "embed_pub_name": "Disney"
-                }
-                // You can pass additional parameters for row-level security policies here.
-                // For details, see: https://docs.rilldata.com/integrate/embedding
-            }),`}
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}> Pivot Disabled Embed Dashboard </h1>
+          <p style={{ fontSize: '1rem', color: '#666' }}> It is possible to disable your users from accessing the pivot table in an embed dashboard. Set the following in your explore dashboard YAML. </p>
+          <code>
+              {`embeds:
+                    hide_pivot: true`}
             </code>
-          </pre>
-
-          <p style={{ fontSize: '1rem', color: '#666' }}>Rill Metric view</p>
-
-          <pre
-            style={{
-              backgroundColor: '#f4f4f4',
-              padding: '10px',
-              borderRadius: '5px',
-              overflowX: 'auto',
-              textAlign: 'left',
-              margin: '20px 0',
-            }}
-          >
-            <code>
-              {`security:
-  access: true
-  row_filter: "Pub_Name = '{{ .user.embed_pub_name }}'"
-
-  #row_filter: "Pub_Name IN (SELECT PubName FROM test WHERE custom_attribute = '{{ .user.custom_attribute_from_embed }}')"
 
 
-`}
-            </code>
-          </pre>
 
-    
-          </div>
-      )}
-        </div>
-
-       {/* Page Content */}
-       <div
+        {/* Page Content */}
+        <div
           style={{
             flex: 1,
             padding: '20px',
@@ -178,6 +111,7 @@ export default function Page1() {
       </div>
 
       </div>
+    </div>
   );
 }
 

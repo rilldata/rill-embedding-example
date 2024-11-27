@@ -41,6 +41,9 @@ export default function Home() {
           <Link href="/page5" style={{ textDecoration: 'none', color: '#3524c7' }}>
             Passing Custom Attributes via the Embed URL creation
           </Link>
+          <Link href="/page6" style={{ textDecoration: 'none', color: '#3524c7' }}>
+          No Pivot Embed Dashboard
+        </Link>
         </nav>
       </div>
 
@@ -61,8 +64,10 @@ export default function Home() {
           <a href='/page3'> <b> Canvas Dashboard - Current unavailable</b></a>:  We are re-working Canvas Dashboards and will be available soon!    <br/><br/>
           <a href='/page4'> <b> Row Access Policy Dashboard</b></a>:  Using default available parameters to pass to Rill during URL creation to filter row/columns/access    <br/><br/>
           <a href='/page5'> <b> Row Access Policy Dashboard with Custom Attributes</b></a>:  Embed Dashboards allow for custom attributes to be passed during the URL creation process.    <br/><br/>
+          <a href='/page6'> <b> Pivot Disabled Embed Dashboard</b></a>:  Embed Dashboards that disabled pivot view.   <br/><br/>
+
           <h3> Coming soon:</h3>
-          <p> Disable Pivot Navigation</p>
+          
           <p> Human Readable URL State to pass during URL creation</p>
 
 

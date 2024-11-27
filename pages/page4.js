@@ -188,9 +188,7 @@ row_filter: "Pub_Name IN (SELECT PubName FROM mapping WHERE domain = '{{ .user.d
           />
         </div>
       </div>
-      <div>
-      </div>
-        
+
       </div>
     </div>
   );
@@ -234,6 +232,9 @@ function LeftSideNav() {
         </Link>
         <Link href="/page5" style={{ textDecoration: 'none', color: '#3524c7' }}>
           Passing Custom Attributes via the Embed URL creation
+        </Link>
+        <Link href="/page6" style={{ textDecoration: 'none', color: '#3524c7' }}>
+          No Pivot Embed Dashboard
         </Link>
       </nav>
     </div>

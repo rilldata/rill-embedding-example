@@ -142,6 +142,9 @@ function LeftSideNav() {
         <Link href="/page5" style={{ textDecoration: 'none', color: '#3524c7' }}>
           Passing Custom Attributes via the Embed URL creation
         </Link>
+        <Link href="/page6" style={{ textDecoration: 'none', color: '#3524c7' }}>
+          No Pivot Embed Dashboard
+        </Link>
       </nav>
     </div>
   );
