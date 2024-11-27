@@ -7,6 +7,11 @@ export default function Page1() {
   const [isLoading, setLoading] = useState(true);
   const [iframeSrc, setIframeSrc] = useState('');
   const [error, setError] = useState('');
+  const [isHidden, setIsHidden] = useState(true); // State to toggle visibility
+
+  const toggleHidden = () => {
+    setIsHidden(!isHidden);
+  };
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
   useEffect(() => {
@@ -71,11 +76,94 @@ export default function Page1() {
             backgroundColor: '#ffffff',
             padding: '10px',
             borderRadius: '8px',
-            
           }}
         >
           <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Rill Embed Dashboard with Navigation</h1>
           <p style={{ fontSize: '1rem', color: '#666' }}>Different to the basic embed example, you'll notice a banner at the top of the embed that allows you to navigate to different dashboards, and even the Organization page.</p>
+            <div>
+            <button
+              onClick={toggleHidden}
+              style={{
+                padding: '10px 15px',
+                backgroundColor: '#3524c7',
+                color: 'white',
+                border: 'none',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                marginBottom: '10px',
+              }}
+            >
+        {isHidden ? 'Show More Details' : 'Hide Details'}
+      </button>
+
+
+ {/* Section that can be toggled */}
+ {!isHidden && (
+        <div>
+          <p style={{ fontSize: '1rem', color: '#666' }}>URL embed contents</p>
+          <pre
+            style={{
+              backgroundColor: '#f4f4f4',
+              padding: '10px',
+              borderRadius: '5px',
+              overflowX: 'auto',
+              textAlign: 'left',
+              margin: '20px 0',
+            }}
+          >
+            
+            <code>
+              {`body: JSON.stringify({
+  resource: rillDashboard,
+  user_email: 'test@domain.com',
+  // You can pass additional parameters for row-level security policies here.
+  // For details, see: https://docs.rilldata.com/integrate/embedding
+}),`}
+            </code>
+          </pre>
+
+          <p style={{ fontSize: '1rem', color: '#666' }}>Rill Metric view</p>
+
+          <pre
+            style={{
+              backgroundColor: '#f4f4f4',
+              padding: '10px',
+              borderRadius: '5px',
+              overflowX: 'auto',
+              textAlign: 'left',
+              margin: '20px 0',
+            }}
+          >
+            <code>
+              {`security:
+access: true
+row_filter: "Pub_Name IN (SELECT PubName FROM mapping WHERE domain = '{{ .user.domain }}')"
+`}
+            </code>
+          </pre>
+
+    
+    <p style={{ fontSize: '1rem', color: '#666' }}>Since the user domain doesn't directly match a dimension, we need a mapping file: </p>
+
+    <pre
+            style={{
+              backgroundColor: '#f4f4f4',
+              padding: '10px',
+              borderRadius: '5px',
+              overflowX: 'auto',
+              textAlign: 'left',
+              margin: '20px 0',
+            }}
+          >
+            
+            <code>
+              {`    SELECT * FROM (VALUES 
+      ('Disney', 'domain.com')
+    ) AS t(PubName, domain)`}
+            </code>
+          </pre>
+          </div>
+      )}
         </div>
 
         {/* Page Content */}
@@ -86,7 +174,6 @@ export default function Page1() {
             backgroundColor: '#ffffff',
             borderRadius: '8px',
             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-            minHeight: '500px', // Minimum height
           }}
         >
           <iframe
@@ -100,6 +187,10 @@ export default function Page1() {
             }}
           />
         </div>
+      </div>
+      <div>
+      </div>
+        
       </div>
     </div>
   );
