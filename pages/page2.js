@@ -153,6 +153,9 @@ function LeftSideNav() {
         <Link href="/page6" style={{ textDecoration: 'none', color: '#3524c7' }}>
           No Pivot Embed Dashboard
         </Link>
+        <Link href="/page7" style={{ textDecoration: 'none', color: '#3524c7' }}>
+          Error Loading Embed Dashboard
+        </Link>
       </nav>
     </div>
   );

@@ -44,6 +44,9 @@ export default function Home() {
           <Link href="/page6" style={{ textDecoration: 'none', color: '#3524c7' }}>
           No Pivot Embed Dashboard
         </Link>
+        <Link href="/page7" style={{ textDecoration: 'none', color: '#3524c7' }}>
+          Error Loading Embed Dashboard
+        </Link>
         </nav>
       </div>
 
@@ -65,6 +68,7 @@ export default function Home() {
           <a href='/page4'> <b> Row Access Policy Dashboard</b></a>:  Using default available parameters to pass to Rill during URL creation to filter row/columns/access    <br/><br/>
           <a href='/page5'> <b> Row Access Policy Dashboard with Custom Attributes</b></a>:  Embed Dashboards allow for custom attributes to be passed during the URL creation process.    <br/><br/>
           <a href='/page6'> <b> Pivot Disabled Embed Dashboard</b></a>:  Embed Dashboards that disabled pivot view.   <br/><br/>
+          <a href='/page7'> <b> No Data Returned Page</b></a>:  If a dashboard returns no data.   <br/><br/>
 
           <h3> Coming soon:</h3>
           
