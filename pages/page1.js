@@ -7,6 +7,11 @@ export default function Page1() {
   const [isLoading, setLoading] = useState(true);
   const [iframeSrc, setIframeSrc] = useState('');
   const [error, setError] = useState('');
+  const [isHidden, setIsHidden] = useState(true); // State to toggle visibility
+
+  const toggleHidden = () => {
+    setIsHidden(!isHidden);
+  };
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
   useEffect(() => {
@@ -75,8 +80,7 @@ export default function Page1() {
         >
           <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Rill Basic Embedding</h1>
           <p style={{ fontSize: '1rem', color: '#666' }}>This is an example of a basic dashboard being embedded without additional parameters.</p>
-        </div>
-
+ 
         {/* Page Content */}
         <div
           style={{
@@ -98,6 +102,10 @@ export default function Page1() {
             }}
           />
         </div>
+      </div>
+      <div>
+      </div>
+        
       </div>
     </div>
   );
