@@ -33,7 +33,7 @@ export default async function handler(req, res) {
         });
         const data = await response.json();
         if (response.ok) {
-            res.json(data);a
+            res.json(data);
         } else {
             throw new Error(data.message);
         }

@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useState, useEffect } from 'react';
 
 export default function Page1() {

@@ -1,5 +1,4 @@
-import Head from 'next/head';
-import Link from 'next/link';
+
 import { useState, useEffect } from 'react';
 
 export default function Page1() {
@@ -7,11 +6,6 @@ export default function Page1() {
   const [isLoading, setLoading] = useState(true);
   const [iframeSrc, setIframeSrc] = useState('');
   const [error, setError] = useState('');
-  const [isHidden, setIsHidden] = useState(true); // State to toggle visibility
-
-  const toggleHidden = () => {
-    setIsHidden(!isHidden);
-  };
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
   useEffect(() => {
