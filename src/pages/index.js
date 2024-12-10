@@ -10,20 +10,15 @@ export default function Home() {
       </a>
       : An embed dashboard that defaults to the Explore page view. Navigation to other types of views allowed.
       <br/><br/>
-      <a href="/tdd-view" style={{ textDecoration: 'none', color: '#3524c7' }}>
-        Embed TDD view (WIP)
+      <a href="/views/custom-view" style={{ textDecoration: 'none', color: '#3524c7' }}>
+        Default Explore View(WIP)
         </a>
       : An embed dashboard that defaults to the Time Dimension Detail page view. Navigation to other types of views allowed. This feature is still in testing. Contact us for more information!
       <br/><br/>
-        <a href="/pivot-view" style={{ textDecoration: 'none', color: '#3524c7' }}>
-        Embed Pivot View (WIP)
-        </a>
-        : An embed dashboard that defaults to the Pivot page view. Navigation to other types of views allowed. This feature is still in testing. Contact us for more information!
-        <br/><br/>
         <a href="/error-loading-data" style={{ textDecoration: 'none', color: '#3524c7' }}>
           Initial Filtered View (WIP)
         </a>
-        : Apply default filters to a dashboard on first load. Users can modify the filters but will reset on refresh. Please refer to our <a href= 'https://docs.rilldata.com/integrate/embedding'> embedding documentation. </a> Contact us for more information!
+        : Apply default filters to a dashboard on first load. Users can modify the filters but will reset on refresh. Please refer to our <a href= 'https://docs.rilldata.com/integrate/embedding'> embedding documentation. </a> This feature is still in testing. Contact us for more information!
         <br/><br/>
   
   
