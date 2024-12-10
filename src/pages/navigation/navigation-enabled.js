@@ -15,7 +15,7 @@ export default function Page1() {
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
   useEffect(() => {
-    fetch(`/api/iframe`, {
+    fetch(`/api/nav-iframe`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +40,6 @@ export default function Page1() {
   if (isLoading) {
     return (
       <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f9f9f9' }}>
-        <LeftSideNav />
         <div style={{ flex: 1, padding: '20px' }}>
           <p>Loading...</p>
         </div>
@@ -52,7 +51,6 @@ export default function Page1() {
   if (error) {
     return (
       <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f9f9f9' }}>
-        <LeftSideNav />
         <div style={{ flex: 1, padding: '20px' }}>
           <p>Failed with error: {error}</p>
         </div>
@@ -63,9 +61,6 @@ export default function Page1() {
   // Render the iframe
   return (
     <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f9f9f9' }}>
-      {/* Left-Side Navigation */}
-      <LeftSideNav />
-
       {/* Main Content Area */}
       <div style={{ flex: 1, padding: '20px', display: 'flex', flexDirection: 'column' }}>
         {/* Title Banner */}
@@ -78,9 +73,11 @@ export default function Page1() {
             borderRadius: '8px',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Rill Basic Embedding</h1>
-          <p style={{ fontSize: '1rem', color: '#666' }}>This is an example of a basic dashboard being embedded without additional parameters.</p>
- 
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Navigation Enabled Embed Dashboard</h1>
+        <p>
+            As seen below, when enabling navigation on your embed iframe, your users can navigate to other explore dashboards. If you want to restrict the visible explore dashboards, you will need to also pass a user parameter and enable access policies on your metrics view.
+            Please refer to our <a href= 'https://docs.rilldata.com/integrate/embedding'> embedding documentation </a> and  <a href= 'https://docs.rilldata.com/manage/security'> dashboard access policies documentation </a> .
+        </p>
         {/* Page Content */}
         <div
           style={{
@@ -97,66 +94,32 @@ export default function Page1() {
             src={iframeSrc}
             style={{
               width: '100%',
-              height: '800px',
+              height: '1000px',
               border: 'none',
             }}
           />
         </div>
+        <div
+          style={{
+            marginTop: '20px',
+            textAlign: 'center',
+            backgroundColor: '#ffffff',
+            padding: '10px',
+            borderRadius: '8px',
+            textAlign: 'left'
+          }}
+        >
+        <h3> Related Links: </h3>
+        <a href= 'https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br/>
+        <a href= 'https://github.com/rilldata/rill-embedding-example'> iframe JS code</a> <br/>
+        <a href= 'https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_data_model_metrics_explore'> Rill Dashboard</a> <br/>
       </div>
-      <div>
       </div>
+
         
       </div>
     </div>
   );
-}
+};
 
-// Left-Side Navigation Component
-function LeftSideNav() {
-  return (
-    <div
-      style={{
-        width: '300px',
-        borderRight: '1px solid #ddd',
-        padding: '20px',
-        backgroundColor: '#F8F8F8',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '20px',
-      }}
-    >
-      <h2 style={{ textAlign: 'center', marginBottom: '10px' }}>
-      <Link href="/">
-            <img src='/img/rill logo indigo.png'
-                 style={{
-              width: '75px',
-              height: 'auto',
-            }}/>
-          </Link>
-      </h2>
-      <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <Link href="/page1" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Basic Embed Example
-        </Link>
-        <Link href="/page2" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Embed with Navigation
-        </Link>
-        <Link href="/page3" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Canvas Dashboard (WIP)
-        </Link>
-        <Link href="/page4" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Row Access Policy Enabled Dashboard
-        </Link>
-        <Link href="/page5" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Passing Custom Attributes via the Embed URL creation
-        </Link>
-        <Link href="/page6" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          No Pivot Embed Dashboard
-        </Link>
-        <Link href="/page7" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Error Loading Embed Dashboard
-        </Link>
-      </nav>
-    </div>
-  );
-}
+

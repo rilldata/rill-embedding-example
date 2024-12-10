@@ -15,7 +15,7 @@ export default function Page1() {
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
   useEffect(() => {
-    fetch(`/api/no-data`, {
+    fetch(`/api/rowpol-iframe`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +40,6 @@ export default function Page1() {
   if (isLoading) {
     return (
       <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f9f9f9' }}>
-        <LeftSideNav />
         <div style={{ flex: 1, padding: '20px' }}>
           <p>Loading...</p>
         </div>
@@ -52,7 +51,6 @@ export default function Page1() {
   if (error) {
     return (
       <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f9f9f9' }}>
-        <LeftSideNav />
         <div style={{ flex: 1, padding: '20px' }}>
           <p>Failed with error: {error}</p>
         </div>
@@ -63,9 +61,6 @@ export default function Page1() {
   // Render the iframe
   return (
     <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f9f9f9' }}>
-      {/* Left-Side Navigation */}
-      <LeftSideNav />
-
       {/* Main Content Area */}
       <div style={{ flex: 1, padding: '20px', display: 'flex', flexDirection: 'column' }}>
         {/* Title Banner */}
@@ -78,9 +73,34 @@ export default function Page1() {
             borderRadius: '8px',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>No Data returned</h1>
-          <p style={{ fontSize: '1rem', color: '#666' }}>This is an example of what is displayed if no data is returned due to access policies.</p>
- 
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Row Access Policy Embed Dashboard</h1>
+        <p>
+        This is an example of a dashboard with row access policies enabled. When creating the embed URL we pass the following email `test@domain.com` which is recognized at the metrics view to filter the Pub Name dimension to Disney. Depending on your use case, you can pass `user_id`, `user_email`, `user_domain`, or attributes.
+        
+        </p>
+        <code>{`
+#Passing the user_email into the iframe creation request
+body: JSON.stringify({
+    resource: rillDashboard,
+    user_email: 'test@domain.com',
+    // You can pass additional parameters for row-level security policies here.
+    // For details, see: https://docs.rilldata.com/integrate/embedding
+}),
+#Using the domain of the user to filter the rows based off a mapping table.
+security:
+    access: true
+    row_filter: "Pub_Name IN (SELECT PubName FROM mapping WHERE domain = '{{ .user.domain }}')"
+
+#Sample mapping table that maps domain.com to Disney which is used in the row access policy.
+SELECT * FROM (VALUES 
+      ('Disney', 'domain.com')
+    ) AS t(PubName, domain)   
+`}
+
+        </code>
+
+
+   
         {/* Page Content */}
         <div
           style={{
@@ -97,66 +117,31 @@ export default function Page1() {
             src={iframeSrc}
             style={{
               width: '100%',
-              height: '800px',
+              height: '1000px',
               border: 'none',
             }}
           />
         </div>
+        <div
+          style={{
+            marginTop: '20px',
+            textAlign: 'center',
+            backgroundColor: '#ffffff',
+            padding: '10px',
+            borderRadius: '8px',
+            textAlign: 'left'
+          }}
+        >
+        <h3> Related Links: </h3>
+        <a href= 'https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br/>
+        <a href= 'https://docs.rilldata.com/integrate/security'> Dashboard Access Policy documentation</a> <br/>
+        <a href= 'https://github.com/rilldata/rill-embedding-example'> iframe JS code</a> <br/>
+        <a href= 'https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_data_model_metrics_explore_row_policies'> Rill Dashboard</a> <br/>
       </div>
-      <div>
+        
       </div>
         
       </div>
     </div>
   );
-}
-
-// Left-Side Navigation Component
-function LeftSideNav() {
-  return (
-    <div
-      style={{
-        width: '300px',
-        borderRight: '1px solid #ddd',
-        padding: '20px',
-        backgroundColor: '#F8F8F8',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '20px',
-      }}
-    >
-      <h2 style={{ textAlign: 'center', marginBottom: '10px' }}>
-      <Link href="/">
-            <img src='/img/rill logo indigo.png'
-                 style={{
-              width: '75px',
-              height: 'auto',
-            }}/>
-          </Link>
-      </h2>
-      <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <Link href="/page1" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Basic Embed Example
-        </Link>
-        <Link href="/page2" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Embed with Navigation
-        </Link>
-        <Link href="/page3" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Canvas Dashboard (WIP)
-        </Link>
-        <Link href="/page4" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Row Access Policy Enabled Dashboard
-        </Link>
-        <Link href="/page5" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Passing Custom Attributes via the Embed URL creation
-        </Link>
-        <Link href="/page6" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          No Pivot Embed Dashboard
-        </Link>
-        <Link href="/page7" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Error Loading Embed Dashboard
-        </Link>
-      </nav>
-    </div>
-  );
-}
+};

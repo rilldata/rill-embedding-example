@@ -15,7 +15,7 @@ export default function Page1() {
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
   useEffect(() => {
-    fetch(`/api/no-pivot`, {
+    fetch(`/api/pivot-disabled-iframe`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +40,6 @@ export default function Page1() {
   if (isLoading) {
     return (
       <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f9f9f9' }}>
-        <LeftSideNav />
         <div style={{ flex: 1, padding: '20px' }}>
           <p>Loading...</p>
         </div>
@@ -52,7 +51,6 @@ export default function Page1() {
   if (error) {
     return (
       <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f9f9f9' }}>
-        <LeftSideNav />
         <div style={{ flex: 1, padding: '20px' }}>
           <p>Failed with error: {error}</p>
         </div>
@@ -63,9 +61,6 @@ export default function Page1() {
   // Render the iframe
   return (
     <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f9f9f9' }}>
-      {/* Left-Side Navigation */}
-      <LeftSideNav />
-
       {/* Main Content Area */}
       <div style={{ flex: 1, padding: '20px', display: 'flex', flexDirection: 'column' }}>
         {/* Title Banner */}
@@ -78,15 +73,18 @@ export default function Page1() {
             borderRadius: '8px',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}> Pivot Disabled Embed Dashboard </h1>
-          <p style={{ fontSize: '1rem', color: '#666' }}> It is possible to disable your users from accessing the pivot table in an embed dashboard. Set the following in your explore dashboard YAML. </p>
-          <code>
-              {`embeds:
-                    hide_pivot: true`}
-            </code>
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Pivot Table Disabled Dashboard</h1>
+        <p>
+        It is possible to disable the pivot table on an explore dashboard. You will need to enable the following parameter on the explore dashboard.
 
+        Please see <a href= 'https://github.com/rilldata/rill-examples/blob/main/rill-openrtb-prog-ads/dashboards/pivot_disabled.yaml'> an example explore dashboard </a> from our demo project.
 
+        <code>{`
+embeds:
+    hide_pivot: true 
+        `}</code>
 
+        </p>
         {/* Page Content */}
         <div
           style={{
@@ -103,64 +101,30 @@ export default function Page1() {
             src={iframeSrc}
             style={{
               width: '100%',
-              height: '800px',
+              height: '1000px',
               border: 'none',
             }}
           />
         </div>
+        <div
+          style={{
+            marginTop: '20px',
+            textAlign: 'center',
+            backgroundColor: '#ffffff',
+            padding: '10px',
+            borderRadius: '8px',
+            textAlign: 'left'
+          }}
+        >
+        <h3> Related Links: </h3>
+        <a href= 'https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br/>
+        <a href= 'https://github.com/rilldata/rill-embedding-example'> iframe JS code</a> <br/>
+        <a href= 'https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/pivot_disabled'> Rill Dashboard</a> <br/>
+      </div>
       </div>
 
+        
       </div>
     </div>
   );
-}
-
-// Left-Side Navigation Component
-function LeftSideNav() {
-  return (
-    <div
-      style={{
-        width: '300px',
-        borderRight: '1px solid #ddd',
-        padding: '20px',
-        backgroundColor: '#F8F8F8',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '20px',
-      }}
-    >
-      <h2 style={{ textAlign: 'center', marginBottom: '10px' }}>
-      <Link href="/">
-            <img src='/img/rill logo indigo.png'
-                 style={{
-              width: '75px',
-              height: 'auto',
-            }}/>
-          </Link>
-      </h2>
-      <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <Link href="/page1" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Basic Embed Example
-        </Link>
-        <Link href="/page2" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Embed with Navigation
-        </Link>
-        <Link href="/page3" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Canvas Dashboard (WIP)
-        </Link>
-        <Link href="/page4" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Row Access Policy Enabled Dashboard
-        </Link>
-        <Link href="/page5" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Passing Custom Attributes via the Embed URL creation
-        </Link>
-        <Link href="/page6" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          No Pivot Embed Dashboard
-        </Link>
-        <Link href="/page7" style={{ textDecoration: 'none', color: '#3524c7' }}>
-          Error Loading Embed Dashboard
-        </Link>
-      </nav>
-    </div>
-  );
-}
+};
