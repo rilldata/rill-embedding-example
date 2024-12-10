@@ -11,7 +11,7 @@ export default function Home() {
       : An embed dashboard that defaults to the Explore page view. Navigation to other types of views allowed.
       <br/><br/>
       <a href="/views/custom-view" style={{ textDecoration: 'none', color: '#3524c7' }}>
-        Default Explore View(WIP)
+        Default Explore View (WIP)
         </a>
       : An embed dashboard that defaults to the Time Dimension Detail page view. Navigation to other types of views allowed. This feature is still in testing. Contact us for more information!
       <br/><br/>
