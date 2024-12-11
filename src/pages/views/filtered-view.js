@@ -141,7 +141,7 @@ export default function Page1() {
             Embedding documentation
           </a>
           <br />
-          <a href="https://github.com/rilldata/rill-embedding-example">
+          <a href="https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/view-iframe.js">
             iframe JS code
           </a>
           <br />

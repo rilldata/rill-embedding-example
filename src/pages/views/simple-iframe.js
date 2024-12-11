@@ -102,7 +102,7 @@ export default function Page1() {
         >
         <h3> Related Links: </h3>
         <a href= 'https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br/>
-        <a href= 'https://github.com/rilldata/rill-embedding-example'> iframe JS code</a> <br/>
+        <a href= 'https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/simple-iframe.js'> iframe JS code</a> <br/>
         <a href= 'https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/bids_data_model_metrics_explore'> Rill Dashboard</a> <br/>
       </div>
       </div>
