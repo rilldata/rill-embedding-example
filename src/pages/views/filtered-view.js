@@ -18,17 +18,17 @@ export default function Page1() {
         if (error !== undefined) {
           setError(error);
         } else {
-            const newIframeSrc = new URL(iframeSrc);
+          const newIframeSrc = new URL(iframeSrc);
 
-            // Correctly iterate over the object using Object.entries
-            for (const [key, value] of Object.entries({
-              tr: 'P6M',
-              f: "author_name IN ('Alexey Milovidov')"
-            })) {
-              newIframeSrc.searchParams.set(key, value); // Set each query parameter
-            }
-            
-            setIframeSrc(newIframeSrc.toString()); // Update the iframe source
+          // Correctly iterate over the object using Object.entries
+          for (const [key, value] of Object.entries({
+            tr: 'P6M',
+            f: "author_name IN ('Alexey Milovidov')"
+          })) {
+            newIframeSrc.searchParams.set(key, value); // Set each query parameter
+          }
+
+          setIframeSrc(newIframeSrc.toString()); // Update the iframe source
         }
         setLoading(false);
       })
@@ -85,13 +85,13 @@ export default function Page1() {
           <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>
             Modify the default view of your dashboard (Filters)
           </h1>
-          <p>By modifying the URL of the iframe, you can set the default filters on your dashboard on load. Your users will be able to modify the filters afterwards. Upon refresh, will return to initial filtered state. 
-            <br/>
-             This feature is still in testing phase. Please contact us for more information.</p>
+          <p>By modifying the URL of the iframe, you can set the default filters on your dashboard on load. Your users will be able to modify the filters afterwards. Upon refresh, will return to initial filtered state.
+            <br />
+            This feature is still in testing phase. Please contact us for more information.</p>
         </div>
         <div style={{ marginTop: '10px', marginBottom: '30px', textAlign: 'center' }}>
           <button
-            onClick={() => updateIframeParams({ view: 'explore', tr: 'inf', f: "", compare_dim: "", compare_tr: ""})}>
+            onClick={() => updateIframeParams({ view: 'explore', tr: 'inf', f: "", compare_dim: "", compare_tr: "" })}>
             Remove Filters
           </button>
 
@@ -101,7 +101,7 @@ export default function Page1() {
           </button>
 
           <button
-            onClick={() => updateIframeParams({ view: 'explore', tr: 'P3M', compare_tr: 'rill-PP', compare_dim: '', f: '',})}>
+            onClick={() => updateIframeParams({ view: 'explore', tr: 'P3M', compare_tr: 'rill-PP', compare_dim: '', f: '', })}>
             Compare Time!
           </button>
         </div>
@@ -151,7 +151,7 @@ export default function Page1() {
           <br />
         </div>
 
-        
+
       </div>
     </div>
   );

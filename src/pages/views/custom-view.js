@@ -29,9 +29,9 @@ export default function Page1() {
           })) {
             newIframeSrc.searchParams.set(key, value); // Set each query parameter
           }
-          
+
           setIframeSrc(newIframeSrc.toString()); // Update the iframe source
-          
+
 
         }
         setLoading(false);
@@ -90,25 +90,25 @@ export default function Page1() {
             Modify the default view of your dashboard (Views)
           </h1>
           <p>By modifying the URL of the iframe, you can set the default view of your explore dashboard to the Time Dimension Detail (TDD) view.
-          <br/>
-             This feature is still in testing phase. Please contact us for more information.</p>
-        
-        <div style={{ marginTop: '10px', marginBottom: '10px', textAlign: 'center' }}>
-          <button
-            onClick={() => updateIframeParams({tr: 'P3M', view: 'ttd', measure: 'total_line_changes', compare_dim: 'author_name' })}>
-            TTD View
-          </button>
+            <br />
+            This feature is still in testing phase. Please contact us for more information.</p>
 
-          <button
-            onClick={() => updateIframeParams({tr: 'P3M', view: 'explore', measure: 'total_line_changes' })}>
-            Explore View
-          </button>
+          <div style={{ marginTop: '10px', marginBottom: '10px', textAlign: 'center' }}>
+            <button
+              onClick={() => updateIframeParams({ tr: 'P3M', view: 'ttd', measure: 'total_line_changes', compare_dim: 'author_name' })}>
+              TTD View
+            </button>
 
-          <button
-            onClick={() => updateIframeParams({tr: 'P3M', view: 'pivot', rows: 'author_name', cols: 'total_line_changes',})}>
-            Pivot View
-          </button>
-        </div>
+            <button
+              onClick={() => updateIframeParams({ tr: 'P3M', view: 'explore', measure: 'total_line_changes' })}>
+              Explore View
+            </button>
+
+            <button
+              onClick={() => updateIframeParams({ tr: 'P3M', view: 'pivot', rows: 'author_name', cols: 'total_line_changes', })}>
+              Pivot View
+            </button>
+          </div>
         </div>
         <div
           style={{
@@ -156,7 +156,7 @@ export default function Page1() {
           <br />
         </div>
 
-        
+
       </div>
     </div>
   );
