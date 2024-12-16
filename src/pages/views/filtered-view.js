@@ -23,7 +23,7 @@ export default function Page1() {
           // Correctly iterate over the object using Object.entries
           for (const [key, value] of Object.entries({
             tr: 'P6M',
-            f: "author_name IN ('Alexey Milovidov')"
+            f: "device_state IN ('NY')"
           })) {
             newIframeSrc.searchParams.set(key, value); // Set each query parameter
           }
@@ -91,13 +91,13 @@ export default function Page1() {
         </div>
         <div style={{ marginTop: '10px', marginBottom: '30px', textAlign: 'center' }}>
           <button
-            onClick={() => updateIframeParams({ view: 'explore', tr: 'inf', f: "", compare_dim: "", compare_tr: "" })}>
+            onClick={() => updateIframeParams({ view: 'explore', tr: 'P6M', f: "", compare_dim: "", compare_tr: "" })}>
             Remove Filters
           </button>
 
           <button
-            onClick={() => updateIframeParams({ view: 'explore', tr: 'P3M', compare_dim: 'author_name', f: "author_name IN ('Alexey Milovidov', 'Robert Schulze', 'Max Kainov')" })}>
-            Compare Authors!
+            onClick={() => updateIframeParams({ view: 'explore', tr: 'P3M', compare_dim: 'pub_name', f: "pub_name IN ('Disney', 'Pluto TV', 'LG USA')" })}>
+            Compare Publishers!
           </button>
 
           <button

@@ -24,8 +24,8 @@ export default function Page1() {
           for (const [key, value] of Object.entries({
             tr: 'P12M',
             view: 'ttd',
-            measure: 'total_line_changes',
-            compare_dim: 'author_name',
+            measure: 'requests',
+            compare_dim: 'pub_name',
           })) {
             newIframeSrc.searchParams.set(key, value); // Set each query parameter
           }
@@ -95,17 +95,17 @@ export default function Page1() {
 
           <div style={{ marginTop: '10px', marginBottom: '10px', textAlign: 'center' }}>
             <button
-              onClick={() => updateIframeParams({ tr: 'P3M', view: 'ttd', measure: 'total_line_changes', compare_dim: 'author_name' })}>
+              onClick={() => updateIframeParams({ tr: 'P3M', view: 'ttd', measure: 'requests', compare_dim: 'pub_name' })}>
               TTD View
             </button>
 
             <button
-              onClick={() => updateIframeParams({ tr: 'P3M', view: 'explore', measure: 'total_line_changes' })}>
+              onClick={() => updateIframeParams({ tr: 'P3M', view: 'explore', measure: '' })}>
               Explore View
             </button>
 
             <button
-              onClick={() => updateIframeParams({ tr: 'P3M', view: 'pivot', rows: 'author_name', cols: 'total_line_changes', })}>
+              onClick={() => updateIframeParams({ tr: 'P3M', view: 'pivot', rows: 'pub_name', cols: 'requests,device_state', })}>
               Pivot View
             </button>
           </div>
