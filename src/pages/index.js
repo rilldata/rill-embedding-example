@@ -63,7 +63,7 @@ export default function Home() {
     : Embed a dashboard with default filters enabled. Your users can modify the dashboard but a refresh will return back to your filtered view.
     <br /><br />
 
-    <p> For information on these features, reach out to us at  <a href="mailto:contact@rilldata.com?subject=Inquiry%20about%20embed%20dashboards&body=Hello%20Rill%20Team,">  support@rilldata.com</a>. </p>
+    <p> For information on these features, reach out to us at  <a href="mailto:support@rilldata.com?subject=Inquiry%20about%20embed%20dashboards&body=Hello%20Rill%20Team,">  support@rilldata.com</a>. </p>
 
   </div >
 
