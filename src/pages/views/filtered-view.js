@@ -87,7 +87,7 @@ export default function Page1() {
           </h1>
           <p>By modifying the URL of the iframe, you can set the default filters on your dashboard on load. Your users will be able to modify the filters afterwards. Upon refresh, will return to initial filtered state.
             <br />
-            This feature is still in testing phase. Please contact us for more information.</p>
+            This feature is still in development. Please contact us for more information.</p>
         </div>
         <div style={{ marginTop: '10px', marginBottom: '30px', textAlign: 'center' }}>
           <button
@@ -142,7 +142,7 @@ export default function Page1() {
           </a>
           <br />
           <a href="https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/view-iframe.js">
-            iframe JS code
+            iframe code
           </a>
           <br />
           <a href="https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/bids_data_model_metrics_explore">

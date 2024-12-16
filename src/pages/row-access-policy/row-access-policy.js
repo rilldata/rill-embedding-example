@@ -67,7 +67,7 @@ export default function Page1() {
             borderRadius: '8px',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Row Access Policy Embed Dashboard</h1>
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Row access policy embed dashboard</h1>
           <p>
             This is an example of a dashboard with row access policies enabled. When creating the embed URL we pass the following email `test@domain.com` which is recognized at the metrics view to filter the Pub Name dimension to Disney. Depending on your use case, you can pass `user_id`, `user_email`, `user_domain`, or attributes.
 
@@ -129,7 +129,7 @@ SELECT * FROM (VALUES
             <h3> Related Links: </h3>
             <a href='https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br />
             <a href='https://docs.rilldata.com/integrate/security'> Dashboard Access Policy documentation</a> <br />
-            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/rowpol-iframe.js'> iframe JS code</a> <br />
+            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/rowpol-iframe.js'> iframe code</a> <br />
             <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_data_model_metrics_explore_row_policies'> Rill Dashboard</a> <br />
           </div>
 

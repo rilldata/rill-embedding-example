@@ -65,7 +65,7 @@ export default function Page1() {
             borderRadius: '8px',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Basic Embed Dashboard</h1>
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Basic embed dashboard</h1>
           <p>
             Basic Example of Embedding an Explore dashboard into your webpage.
           </p>
@@ -102,7 +102,7 @@ export default function Page1() {
           >
             <h3> Related Links: </h3>
             <a href='https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br />
-            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/simple-iframe.js'> iframe JS code</a> <br />
+            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/simple-iframe.js'> iframe code</a> <br />
             <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/bids_data_model_metrics_explore'> Rill Dashboard</a> <br />
           </div>
         </div>

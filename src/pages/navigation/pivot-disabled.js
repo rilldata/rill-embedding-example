@@ -67,7 +67,7 @@ export default function Page1() {
             borderRadius: '8px',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Pivot Table Disabled Dashboard</h1>
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Pivot view disabled dashboard</h1>
           <p>
             It is possible to disable the pivot table on an explore dashboard. You will need to enable the following parameter on the explore dashboard.
 
@@ -112,7 +112,7 @@ embeds:
           >
             <h3> Related Links: </h3>
             <a href='https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br />
-            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/pivot-disabled-iframe.js'> iframe JS code</a> <br />
+            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/pivot-disabled-iframe.js'> iframe code</a> <br />
             <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/pivot_disabled'> Rill Dashboard</a> <br />
           </div>
         </div>

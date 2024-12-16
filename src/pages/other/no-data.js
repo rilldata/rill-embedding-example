@@ -67,9 +67,9 @@ export default function Page1() {
             borderRadius: '8px',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Basic Embed Dashboard</h1>
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>When no rows are returned on your embed dashboard</h1>
           <p>
-            Basic Example of Embedding an Explore dashboard into your webpage.
+            Depending on the parameters passed or the viewer looking at the embed, there may be times where no data is returned from Rill. In these cases, this is the UI that will be seen.
           </p>
           {/* Page Content */}
           <div
@@ -104,7 +104,7 @@ export default function Page1() {
           >
             <h3> Related Links: </h3>
             <a href='https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br />
-            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/no-data-iframe.js'> iframe JS code</a> <br />
+            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/no-data-iframe.js'> iframe code</a> <br />
             <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_data_model_metrics_explore'> Rill Dashboard</a> <br />
           </div>
         </div>

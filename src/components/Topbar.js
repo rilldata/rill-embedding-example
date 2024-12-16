@@ -7,7 +7,7 @@ export default function Topbar() {
       <div class="logo">
         <h1>Rill Data Embed Examples</h1>
       </div>
-      <p class="subtitle">Your guide to embedding Rill Data dashboards seamlessly.</p>
+      <p class="subtitle">Your guide to embedding Rill Data dashboards seamlessly</p>
     </header>
   );
 }

@@ -89,9 +89,9 @@ export default function Page1() {
           <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>
             Modify the default view of your dashboard (Views)
           </h1>
-          <p>By modifying the URL of the iframe, you can set the default view of your explore dashboard to the Time Dimension Detail (TDD) view.
+          <p>By modifying the URL of the iframe, you can set the default view of your Explore dashboard to the Time Dimension Detail (TDD) view or pivot view.
             <br />
-            This feature is still in testing phase. Please contact us for more information.</p>
+            This feature is still in development. Please contact us for more information.</p>
 
           <div style={{ marginTop: '10px', marginBottom: '10px', textAlign: 'center' }}>
             <button
@@ -147,7 +147,7 @@ export default function Page1() {
           </a>
           <br />
           <a href="https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/view-iframe.js">
-            iframe JS code
+            iframe code
           </a>
           <br />
           <a href="https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/bids_data_model_metrics_explore">
