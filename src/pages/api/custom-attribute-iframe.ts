@@ -24,7 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             body: JSON.stringify({
                 resource: rillDashboard,
                 attributes: {
-                    "custom_attribute_from_embed": "Value2",
+                    "custom_attribute_from_embed": "Value1",  //maps to "Disney" via the mapping_custom file in rill-openrtb project
                     "embed_pub_name": "LG USA"
                 }
                 // You can pass additional parameters for row-level security policies here.
