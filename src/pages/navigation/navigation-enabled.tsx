@@ -1,22 +1,21 @@
-
 import { useState, useEffect } from 'react';
 
-export default function Page1() {
+export default function NavEnabledPage() {
   // State for loading the iframe URL
-  const [isLoading, setLoading] = useState(true);
-  const [iframeSrc, setIframeSrc] = useState('');
-  const [error, setError] = useState('');
+  const [isLoading, setLoading] = useState<boolean>(true);
+  const [iframeSrc, setIframeSrc] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
-  // Fetch the iframe URL from our backend (see pages/api/iframe.js)
+  // Fetch the iframe URL from our backend
   useEffect(() => {
-    fetch(`/api/no-data-iframe`, {
+    fetch(`/api/nav-iframe`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json())
-      .then(({ iframeSrc, error }) => {
+      .then(({ iframeSrc, error }: { iframeSrc: string; error?: string }) => {
         if (error !== undefined) {
           setError(error);
         } else {
@@ -55,9 +54,7 @@ export default function Page1() {
   // Render the iframe
   return (
     <div style={{ display: 'flex', height: '100vh', backgroundColor: '#f9f9f9' }}>
-      {/* Main Content Area */}
       <div style={{ flex: 1, padding: '20px', display: 'flex', flexDirection: 'column' }}>
-        {/* Title Banner */}
         <div
           style={{
             marginBottom: '20px',
@@ -67,11 +64,13 @@ export default function Page1() {
             borderRadius: '8px',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>When no rows are returned on your embed dashboard</h1>
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Navigation enabled embed dashboard</h1>
           <p>
-            Depending on the parameters passed or the viewer looking at the embed, there may be times where no data is returned from Rill. In these cases, this is the UI that will be seen.
+            When enabling navigation on your embed iframe, your users can navigate to other Explore dashboards. If you want to restrict the navigable Explore dashboards, you will need to also pass a user parameter and enable access policies on your metrics view.
+            Please refer to our{' '}
+            <a href="https://docs.rilldata.com/integrate/embedding">embedding documentation</a> and{' '}
+            <a href="https://docs.rilldata.com/manage/security">dashboard access policies documentation</a>.
           </p>
-          {/* Page Content */}
           <div
             style={{
               flex: 1,
@@ -87,7 +86,7 @@ export default function Page1() {
               src={iframeSrc}
               style={{
                 width: '100%',
-                height: '800px',
+                height: '1000px',
                 border: 'none',
               }}
             />
@@ -95,22 +94,25 @@ export default function Page1() {
           <div
             style={{
               marginTop: '20px',
-              textAlign: 'center',
               backgroundColor: '#ffffff',
               padding: '10px',
               borderRadius: '8px',
-              textAlign: 'left'
+              textAlign: 'left',
             }}
           >
-            <h3> Related Links: </h3>
-            <a href='https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br />
-            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/no-data-iframe.js'> iframe code</a> <br />
-            <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_data_model_metrics_explore'> Rill Dashboard</a> <br />
+            <h3>Related Links:</h3>
+            <a href="https://docs.rilldata.com/integrate/embedding">Embedding documentation</a> <br />
+            <a href="https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/nav-iframe.js">
+              iframe code
+            </a>{' '}
+            <br />
+            <a href="https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_data_model_metrics_explore">
+              Rill Dashboard
+            </a>{' '}
+            <br />
           </div>
         </div>
-
-
       </div>
     </div>
   );
-};
+}

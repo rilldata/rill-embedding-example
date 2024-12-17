@@ -1,22 +1,22 @@
 
 import { useState, useEffect } from 'react';
 
-export default function Page1() {
+export default function NoDataReturned() {
   // State for loading the iframe URL
-  const [isLoading, setLoading] = useState(true);
-  const [iframeSrc, setIframeSrc] = useState('');
-  const [error, setError] = useState('');
+  const [isLoading, setLoading] = useState<boolean>(true);
+  const [iframeSrc, setIframeSrc] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
   useEffect(() => {
-    fetch(`/api/custom-attribute-iframe`, {
+    fetch(`/api/no-data-iframe`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json())
-      .then(({ iframeSrc, error }) => {
+      .then(({ iframeSrc, error }: { iframeSrc: string; error?: string }) => {
         if (error !== undefined) {
           setError(error);
         } else {
@@ -67,33 +67,10 @@ export default function Page1() {
             borderRadius: '8px',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Passing custom attributes to your embed dashboard</h1>
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>When no rows are returned on your embed dashboard</h1>
           <p>
-            Along with the out of box parameters, it is possible to send custom attributes to use directly in your metric views row access policy.
-            Please refer to our <a href='https://docs.rilldata.com/integrate/embedding'> embedding documentation</a> for more information.
+            Depending on the parameters passed or the viewer looking at the embed, there may be times where no data is returned from Rill. In these cases, this is the UI that will be seen.
           </p>
-
-          <code>{`
-#Passing attributes into the iframe creation request
-body: JSON.stringify({
-                resource: rillDashboard,
-                attributes: {
-                    "custom_attribute_from_embed": "Value1",
-                    "embed_pub_name": "LG USA"
-                }
-                // You can pass additional parameters for row-level security policies here.
-                // For details, see: https://docs.rilldata.com/integrate/embedding
-            }),
-
-#Using the custom attribute in the row filter directly.
-security:
-  access: true
-  row_filter: "Pub_Name = '{{ .user.embed_pub_name }}'"
-  #row_filter: "Pub_Name IN (SELECT PubName FROM test WHERE custom_attribute = '{{ .user.custom_attribute_from_embed }}')"
-
-`}
-
-          </code>
           {/* Page Content */}
           <div
             style={{
@@ -110,18 +87,14 @@ security:
               src={iframeSrc}
               style={{
                 width: '100%',
-                height: '1000px',
+                height: '800px',
                 border: 'none',
               }}
             />
           </div>
           <div
-
-
-
             style={{
               marginTop: '20px',
-              textAlign: 'center',
               backgroundColor: '#ffffff',
               padding: '10px',
               borderRadius: '8px',
@@ -130,11 +103,11 @@ security:
           >
             <h3> Related Links: </h3>
             <a href='https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br />
-            <a href='https://docs.rilldata.com/integrate/security'> Dashboard Access Policy documentation</a> <br />
-            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/custom-attribute-iframe.js'> iframe code</a> <br />
-            <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/custom_attribute_dashboard'> Rill Dashboard</a> <br />
+            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/no-data-iframe.js'> iframe code</a> <br />
+            <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_data_model_metrics_explore'> Rill Dashboard</a> <br />
           </div>
         </div>
+
 
       </div>
     </div>

@@ -1,22 +1,22 @@
 
 import { useState, useEffect } from 'react';
 
-export default function Page1() {
+export default function CustomAttributes() {
   // State for loading the iframe URL
-  const [isLoading, setLoading] = useState(true);
-  const [iframeSrc, setIframeSrc] = useState('');
-  const [error, setError] = useState('');
+  const [isLoading, setLoading] = useState<boolean>(true);
+  const [iframeSrc, setIframeSrc] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
   useEffect(() => {
-    fetch(`/api/pivot-disabled-iframe`, {
+    fetch(`/api/custom-attribute-iframe`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json())
-      .then(({ iframeSrc, error }) => {
+      .then(({ iframeSrc, error }: { iframeSrc: string; error?: string }) => {
         if (error !== undefined) {
           setError(error);
         } else {
@@ -67,18 +67,33 @@ export default function Page1() {
             borderRadius: '8px',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Pivot view disabled dashboard</h1>
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Passing custom attributes to your embed dashboard</h1>
           <p>
-            It is possible to disable the pivot table on an explore dashboard. You will need to enable the following parameter on the explore dashboard.
-
-            Please see <a href='https://github.com/rilldata/rill-examples/blob/main/rill-openrtb-prog-ads/dashboards/pivot_disabled.yaml'> an example explore dashboard </a> from our demo project.
-
-            <code>{`
-embeds:
-    hide_pivot: true 
-        `}</code>
-
+            Along with the out of box parameters, it is possible to send custom attributes to use directly in your metric views row access policy.
+            Please refer to our <a href='https://docs.rilldata.com/integrate/embedding'> embedding documentation</a> for more information.
           </p>
+
+          <code>{`
+#Passing attributes into the iframe creation request
+body: JSON.stringify({
+                resource: rillDashboard,
+                attributes: {
+                    "custom_attribute_from_embed": "Value1",
+                    "embed_pub_name": "LG USA"
+                }
+                // You can pass additional parameters for row-level security policies here.
+                // For details, see: https://docs.rilldata.com/integrate/embedding
+            }),
+
+#Using the custom attribute in the row filter directly.
+security:
+  access: true
+  row_filter: "Pub_Name = '{{ .user.embed_pub_name }}'"
+  #row_filter: "Pub_Name IN (SELECT PubName FROM test WHERE custom_attribute = '{{ .user.custom_attribute_from_embed }}')"
+
+`}
+
+          </code>
           {/* Page Content */}
           <div
             style={{
@@ -101,9 +116,11 @@ embeds:
             />
           </div>
           <div
+
+
+
             style={{
               marginTop: '20px',
-              textAlign: 'center',
               backgroundColor: '#ffffff',
               padding: '10px',
               borderRadius: '8px',
@@ -112,11 +129,11 @@ embeds:
           >
             <h3> Related Links: </h3>
             <a href='https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br />
-            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/pivot-disabled-iframe.js'> iframe code</a> <br />
-            <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_data_model_metrics_explore'> Rill Dashboard</a> <br />
+            <a href='https://docs.rilldata.com/integrate/security'> Dashboard Access Policy documentation</a> <br />
+            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/custom-attribute-iframe.js'> iframe code</a> <br />
+            <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/custom_attribute_dashboard'> Rill Dashboard</a> <br />
           </div>
         </div>
-
 
       </div>
     </div>

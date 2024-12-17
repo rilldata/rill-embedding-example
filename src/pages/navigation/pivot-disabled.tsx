@@ -1,22 +1,21 @@
-
 import { useState, useEffect } from 'react';
 
-export default function Page1() {
+export default function PivotDisabledPage() {
   // State for loading the iframe URL
-  const [isLoading, setLoading] = useState(true);
-  const [iframeSrc, setIframeSrc] = useState('');
-  const [error, setError] = useState('');
+  const [isLoading, setLoading] = useState<boolean>(true);
+  const [iframeSrc, setIframeSrc] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
   useEffect(() => {
-    fetch(`/api/canvas-iframe`, {
+    fetch(`/api/pivot-disabled-iframe`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json())
-      .then(({ iframeSrc, error }) => {
+      .then(({ iframeSrc, error }: { iframeSrc: string; error?: string }) => {
         if (error !== undefined) {
           setError(error);
         } else {
@@ -67,9 +66,17 @@ export default function Page1() {
             borderRadius: '8px',
           }}
         >
-          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Embed canvas dashboard</h1>
+          <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>Pivot view disabled dashboard</h1>
           <p>
-            Embed a canvas dashboard into your web page.
+            It is possible to disable the pivot table on an explore dashboard. You will need to enable the following parameter on the explore dashboard.
+
+            Please see <a href='https://github.com/rilldata/rill-examples/blob/main/rill-openrtb-prog-ads/dashboards/pivot_disabled.yaml'> an example explore dashboard </a> from our demo project.
+
+            <code>{`
+embeds:
+    hide_pivot: true 
+        `}</code>
+
           </p>
           {/* Page Content */}
           <div
@@ -87,7 +94,7 @@ export default function Page1() {
               src={iframeSrc}
               style={{
                 width: '100%',
-                height: '800px',
+                height: '1000px',
                 border: 'none',
               }}
             />
@@ -95,7 +102,6 @@ export default function Page1() {
           <div
             style={{
               marginTop: '20px',
-              textAlign: 'center',
               backgroundColor: '#ffffff',
               padding: '10px',
               borderRadius: '8px',
@@ -104,9 +110,8 @@ export default function Page1() {
           >
             <h3> Related Links: </h3>
             <a href='https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br />
-            <a href='https://docs.rilldata.com/integrate/security'> Dashboard Access Policy documentation</a> <br />
-            <a href='https://docs.rilldata.com/integrate/embedding'> iframe code</a> <br />
-            <a href='https://docs.rilldata.com/integrate/embedding'> Rill Dashboard</a> <br />
+            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/pivot-disabled-iframe.js'> iframe code</a> <br />
+            <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_data_model_metrics_explore'> Rill Dashboard</a> <br />
           </div>
         </div>
 
