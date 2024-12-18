@@ -1,11 +1,11 @@
 
 import { useState, useEffect } from 'react';
 
-export default function Page1() {
+export default function CustomAttributes() {
   // State for loading the iframe URL
-  const [isLoading, setLoading] = useState(true);
-  const [iframeSrc, setIframeSrc] = useState('');
-  const [error, setError] = useState('');
+  const [isLoading, setLoading] = useState<boolean>(true);
+  const [iframeSrc, setIframeSrc] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   // Fetch the iframe URL from our backend (see pages/api/iframe.js)
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Page1() {
       },
     })
       .then((response) => response.json())
-      .then(({ iframeSrc, error }) => {
+      .then(({ iframeSrc, error }: { iframeSrc: string; error?: string }) => {
         if (error !== undefined) {
           setError(error);
         } else {
@@ -78,7 +78,7 @@ export default function Page1() {
 body: JSON.stringify({
                 resource: rillDashboard,
                 attributes: {
-                    "custom_attribute_from_embed": "Value1",
+                    "custom_attribute_from_embed": "Value1", //maps to "Disney" via the mapping_custom file in rill-openrtb project
                     "embed_pub_name": "LG USA"
                 }
                 // You can pass additional parameters for row-level security policies here.
@@ -121,7 +121,6 @@ security:
 
             style={{
               marginTop: '20px',
-              textAlign: 'center',
               backgroundColor: '#ffffff',
               padding: '10px',
               borderRadius: '8px',
@@ -130,9 +129,9 @@ security:
           >
             <h3> Related Links: </h3>
             <a href='https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br />
-            <a href='https://docs.rilldata.com/integrate/security'> Dashboard Access Policy documentation</a> <br />
+            <a href='https://docs.rilldata.com/manage/security'> Dashboard Access Policy documentation</a> <br />
             <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/custom-attribute-iframe.js'> iframe code</a> <br />
-            <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/custom_attribute_dashboard'> Rill Dashboard</a> <br />
+            <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/custom_attribute_explore'> Rill Dashboard</a> <br />
           </div>
         </div>
 
