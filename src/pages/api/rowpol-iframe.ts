@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { getErrorMessage } from '@/utils/errors';
 
 // Get the secret Rill service token from an environment variable.
 const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
@@ -35,6 +36,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             throw new Error(data.message);
         }
     } catch (error) {
-        res.status(500).json({ error: (error as Error).message });
+        res.status(500).json({ error: getErrorMessage(error) });
     }
 }

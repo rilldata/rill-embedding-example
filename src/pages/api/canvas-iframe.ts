@@ -1,13 +1,16 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { getErrorMessage } from '@/utils/errors';
 
 // Get the secret Rill service token from an environment variable.
-const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
+const rillServiceToken = "rill_svc_jA7jzGnc7KHw7GxNTQivoNL25JKyDhNarBJwNElbQTpBoCsNaIQoRS";
 
 // Configure the dashboard to request an iframe URL for.
 // Note that the organization must be the same as the one the service token is associated with.
 const rillOrg = "demo";
 const rillProject = "rill-openrtb-prog-ads";
-const rillDashboard = "canvas";
+const rillDashboard = "bids_data_model_metrics_explore";
+
+
 
 // This is a serverless function that makes an authenticated request to the Rill API to get an iframe URL for a dashboard.
 // The iframe URL is then returned to the client.
@@ -37,6 +40,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             throw new Error(data.message || 'Failed to fetch iframe URL');
         }
     } catch (error) {
-        res.status(500).json({ error: (error as Error).message });
+        res.status(500).json({ error: getErrorMessage(error) });
     }
 }
