@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 /* Apply globally */
 * {
@@ -6,17 +7,22 @@
   
   body {
       margin: 0;
-      font-family: Arial, sans-serif;
       background-color: #f4f4f4;
-
     }
     
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Arial', sans-serif;
       color: #333;
     }
-    
+
   
+  a, Link {
+  color: #4736f5;         /* Blue color */
+  text-decoration: none;  /* Remove underline */
+  font-weight: 500;       /* Medium font weight */
+  }
+  
+
+
   /* src/app.css */
   
   /* General container styles */

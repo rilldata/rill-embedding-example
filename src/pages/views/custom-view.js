@@ -24,14 +24,14 @@ export default function Page1() {
           for (const [key, value] of Object.entries({
             tr: 'P12M',
             view: 'ttd',
-            measure: 'total_line_changes',
-            compare_dim: 'author_name',
+            measure: 'requests',
+            compare_dim: 'pub_name',
           })) {
             newIframeSrc.searchParams.set(key, value); // Set each query parameter
           }
-          
+
           setIframeSrc(newIframeSrc.toString()); // Update the iframe source
-          
+
 
         }
         setLoading(false);
@@ -89,26 +89,26 @@ export default function Page1() {
           <h1 style={{ margin: 0, fontSize: '2rem', color: '#333' }}>
             Modify the default view of your dashboard (Views)
           </h1>
-          <p>By modifying the URL of the iframe, you can set the default view of your explore dashboard to the Time Dimension Detail (TDD) view.
-          <br/>
-             This feature is still in testing phase. Please contact us for more information.</p>
-        
-        <div style={{ marginTop: '10px', marginBottom: '10px', textAlign: 'center' }}>
-          <button
-            onClick={() => updateIframeParams({tr: 'P3M', view: 'ttd', measure: 'total_line_changes', compare_dim: 'author_name' })}>
-            TTD View
-          </button>
+          <p>By modifying the URL of the iframe, you can set the default view of your Explore dashboard to the Time Dimension Detail (TDD) view or pivot view.
+            <br />
+            This feature is still in development. Please contact us for more information.</p>
 
-          <button
-            onClick={() => updateIframeParams({tr: 'P3M', view: 'explore', measure: 'total_line_changes' })}>
-            Explore View
-          </button>
+          <div style={{ marginTop: '10px', marginBottom: '10px', textAlign: 'center' }}>
+            <button
+              onClick={() => updateIframeParams({ tr: 'P3M', view: 'ttd', measure: 'requests', compare_dim: 'pub_name' })}>
+              TTD View
+            </button>
 
-          <button
-            onClick={() => updateIframeParams({tr: 'P3M', view: 'pivot', rows: 'author_name', cols: 'total_line_changes',})}>
-            Pivot View
-          </button>
-        </div>
+            <button
+              onClick={() => updateIframeParams({ tr: 'P3M', view: 'explore', measure: '' })}>
+              Explore View
+            </button>
+
+            <button
+              onClick={() => updateIframeParams({ tr: 'P3M', view: 'pivot', rows: 'pub_name', cols: 'requests,device_state', })}>
+              Pivot View
+            </button>
+          </div>
         </div>
         <div
           style={{
@@ -147,7 +147,7 @@ export default function Page1() {
           </a>
           <br />
           <a href="https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/view-iframe.js">
-            iframe JS code
+            iframe code
           </a>
           <br />
           <a href="https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/bids_data_model_metrics_explore">
@@ -156,7 +156,7 @@ export default function Page1() {
           <br />
         </div>
 
-        
+
       </div>
     </div>
   );

@@ -1,13 +1,11 @@
 // Get the secret Rill service token from an environment variable.
-//const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
-
-const rillServiceToken = "rill_svc_9jnDunCZkQ199MtnUlcW69sbgU2IbOYkglJfprThuXOJsQ1tKL083G"
+const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
 
 // Configure the dashboard to request an iframe URL for.
 // Note that the organization must be the same as the one the service token is associated with.
 const rillOrg = "demo";
 const rillProject = "rill-openrtb-prog-ads";
-const rillDashboard = "";
+const rillDashboard = "canvas";
 
 // This is a serverless function that makes an authenticated request to the Rill API to get an iframe URL for a dashboard.
 // The iframe URL is then returned to the client.
