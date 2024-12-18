@@ -2,7 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getErrorMessage } from '@/utils/errors';
 
 // Get the secret Rill service token from an environment variable.
-const rillServiceToken = "rill_svc_jA7jzGnc7KHw7GxNTQivoNL25JKyDhNarBJwNElbQTpBoCsNaIQoRS";
+const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
+
 
 // Configure the dashboard to request an iframe URL for.
 // Note that the organization must be the same as the one the service token is associated with.
