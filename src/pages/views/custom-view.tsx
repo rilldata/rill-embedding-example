@@ -155,7 +155,7 @@ export default function CustomView() {
             iframe code
           </a>
           <br />
-          <a href="https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/bids_data_model_metrics_explore">
+          <a href="https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/bids_explore">
             Rill Dashboard
           </a>
           <br />

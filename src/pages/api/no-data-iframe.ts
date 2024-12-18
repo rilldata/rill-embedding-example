@@ -8,7 +8,7 @@ const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
 // Note that the organization must be the same as the one the service token is associated with.
 const rillOrg = "demo";
 const rillProject = "rill-openrtb-prog-ads";
-const rillDashboard = "custom_attribute_dashboard";
+const rillDashboard = "custom_attribute_explore";
 
 // This is a serverless function that makes an authenticated request to the Rill API to get an iframe URL for a dashboard.
 // The iframe URL is then returned to the client.

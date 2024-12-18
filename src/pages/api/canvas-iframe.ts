@@ -9,7 +9,7 @@ const rillServiceToken = process.env.RILL_SERVICE_TOKEN;
 // Note that the organization must be the same as the one the service token is associated with.
 const rillOrg = "demo";
 const rillProject = "rill-openrtb-prog-ads";
-const rillDashboard = "bids_data_model_metrics_explore";
+const rillDashboard = "bids__explore";
 
 
 

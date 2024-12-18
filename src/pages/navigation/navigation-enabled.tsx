@@ -106,7 +106,7 @@ export default function NavEnabledPage() {
               iframe code
             </a>{' '}
             <br />
-            <a href="https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_data_model_metrics_explore">
+            <a href="https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_explore">
               Rill Dashboard
             </a>{' '}
             <br />
