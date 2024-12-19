@@ -22,8 +22,8 @@ export default function CustomView() {
 
           // Add query parameters
           Object.entries({
-            tr: 'P12M',
-            view: 'ttd',
+            tr: 'PT24H',
+            view: 'tdd',
             measure: 'requests',
             compare_dim: 'pub_name',
           }).forEach(([key, value]) => newIframeSrc.searchParams.set(key, value));
@@ -94,7 +94,7 @@ export default function CustomView() {
           <div style={{ marginTop: '10px', marginBottom: '10px', textAlign: 'center' }}>
             <button
               onClick={() =>
-                updateIframeParams({ tr: 'P3M', view: 'ttd', measure: 'requests', compare_dim: 'pub_name' })
+                updateIframeParams({ tr: 'PT24H', view: 'tdd', measure: 'requests', compare_dim: 'pub_name' })
               }
             >
               TTD View

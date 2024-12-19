@@ -22,7 +22,7 @@ export default function FilteredViewPage() {
 
           // Set default query parameters
           Object.entries({
-            tr: 'P6M',
+            tr: 'PT24H',
             f: "device_state IN ('NY')",
           }).forEach(([key, value]) => newIframeSrc.searchParams.set(key, value));
 
@@ -94,7 +94,7 @@ export default function FilteredViewPage() {
         {/* Buttons */}
         <div style={{ marginTop: '10px', marginBottom: '30px', textAlign: 'center' }}>
           <button
-            onClick={() => updateIframeParams({ view: 'explore', tr: 'P6M', f: '', compare_dim: '', compare_tr: '' })}
+            onClick={() => updateIframeParams({ view: 'explore', tr: 'PT24H', f: '', compare_dim: '', compare_tr: '' })}
           >
             Remove Filters
           </button>
@@ -102,7 +102,7 @@ export default function FilteredViewPage() {
             onClick={() =>
               updateIframeParams({
                 view: 'explore',
-                tr: 'P3M',
+                tr: 'PT24H',
                 compare_dim: 'pub_name',
                 f: "pub_name IN ('Disney', 'Pluto TV', 'LG USA')",
               })
@@ -114,7 +114,7 @@ export default function FilteredViewPage() {
             onClick={() =>
               updateIframeParams({
                 view: 'explore',
-                tr: 'P3M',
+                tr: 'PT24H',
                 compare_tr: 'rill-PP',
                 compare_dim: '',
                 f: '',
