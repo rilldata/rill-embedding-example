@@ -1,13 +1,9 @@
+// src/components/Layout.js
 import Navbar from './Navbar';
 import Topbar from './Topbar';
 import styles from '../styles/Layout.module.css';
-import { ReactNode } from 'react';
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children }) {
   return (
     <div className={styles.layout}>
       <Topbar />
