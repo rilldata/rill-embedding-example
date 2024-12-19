@@ -104,7 +104,7 @@ export default function FilteredViewPage() {
             Compare Publishers!
           </button>
           <button
-            onClick={() => updateIframeParams({ view: 'explore', tr: 'P24H', compare_tr: 'rill-PP', compare_dim: '', f: '', })}
+            onClick={() => updateIframeParams({ view: 'explore', tr: 'P24H', compare_tr: 'rill-PD', compare_dim: '', f: '', })}
           >
             Compare Time!
           </button>
