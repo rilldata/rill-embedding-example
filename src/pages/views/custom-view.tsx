@@ -22,7 +22,7 @@ export default function CustomView() {
 
           // Add query parameters
           Object.entries({
-            tr: 'P24H',
+            tr: 'P7D',
             view: 'tdd',
             measure: 'requests',
             compare_dim: 'pub_name',
@@ -94,18 +94,18 @@ export default function CustomView() {
           <div style={{ marginTop: '10px', marginBottom: '10px', textAlign: 'center' }}>
             <button
               onClick={() =>
-                updateIframeParams({ tr: 'P24H', view: 'tdd', measure: 'requests', compare_dim: 'pub_name' })
+                updateIframeParams({ tr: 'P7D', view: 'tdd', measure: 'requests', compare_dim: 'pub_name' })
               }
             >
               TDD View
             </button>
             <button
-              onClick={() => updateIframeParams({ tr: 'P24H', view: 'explore', measure: '' })}
+              onClick={() => updateIframeParams({ tr: 'P7D', view: 'explore', measure: '' })}
             >
               Explore View
             </button>
             <button
-              onClick={() => updateIframeParams({ tr: 'P24H', view: 'pivot', rows: 'pub_name', cols: 'requests,device_state', })}
+              onClick={() => updateIframeParams({ tr: 'P7D', view: 'pivot', rows: 'pub_name', cols: 'requests,device_state', })}
             >
               Pivot View
             </button>
