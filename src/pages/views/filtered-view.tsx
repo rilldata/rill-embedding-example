@@ -22,7 +22,7 @@ export default function FilteredViewPage() {
 
           // Set default query parameters
           Object.entries({
-            tr: 'P6M',
+            tr: 'P24H',
             f: "device_state IN ('NY')",
           }).forEach(([key, value]) => newIframeSrc.searchParams.set(key, value));
 
@@ -94,32 +94,17 @@ export default function FilteredViewPage() {
         {/* Buttons */}
         <div style={{ marginTop: '10px', marginBottom: '30px', textAlign: 'center' }}>
           <button
-            onClick={() => updateIframeParams({ view: 'explore', tr: 'P6M', f: '', compare_dim: '', compare_tr: '' })}
+            onClick={() => updateIframeParams({ view: 'explore', tr: 'P24H', f: '', compare_dim: '', compare_tr: '' })}
           >
             Remove Filters
           </button>
           <button
-            onClick={() =>
-              updateIframeParams({
-                view: 'explore',
-                tr: 'P3M',
-                compare_dim: 'pub_name',
-                f: "pub_name IN ('Disney', 'Pluto TV', 'LG USA')",
-              })
-            }
+            onClick={() => updateIframeParams({ view: 'explore', tr: 'P24H', compare_dim: 'pub_name', f: "pub_name IN ('Disney', 'Pluto TV', 'LG USA')", })}
           >
             Compare Publishers!
           </button>
           <button
-            onClick={() =>
-              updateIframeParams({
-                view: 'explore',
-                tr: 'P3M',
-                compare_tr: 'rill-PP',
-                compare_dim: '',
-                f: '',
-              })
-            }
+            onClick={() => updateIframeParams({ view: 'explore', tr: 'P24H', compare_tr: 'rill-PP', compare_dim: '', f: '', })}
           >
             Compare Time!
           </button>
