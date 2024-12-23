@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/fb82df0c-351e-4b2b-9e7c-30ff5418ff79/deploy-status)](https://app.netlify.com/sites/rill-embedding-example/deploys)
 
-This is a basic [Next.js](https://nextjs.org/) project that embeds a Rill dashboard. It embeds the [demo/rill-openrtb-prog-ads/bids](https://ui.rilldata.com/demo/rill-openrtb-prog-ads/bids) dashboard and is deployed using Netlify to [rill-embedding-example.netlify.app](https://rill-embedding-example.netlify.app/).
+This is a basic [Next.js](https://nextjs.org/) project that embeds a Rill dashboard. It embeds the [demo/rill-openrtb-prog-ads/](https://ui.rilldata.com/demo/rill-openrtb-prog-ads/) dashboard and is deployed using Netlify to [rill-embedding-example.netlify.app](https://rill-embedding-example.netlify.app/).
 
 See the [Embed Dashboards](https://docs.rilldata.com/integration/embedding) docs page for more details.
 
