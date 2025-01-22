@@ -8,6 +8,19 @@ const SimpleIframe = () => {
         resource: 'bids_explore',
     };
 
+    /**
+     * The full request would look like
+     * 
+     * URL: https://admin.rilldata.com/v1/organizations/demo/projects/rill-openrtb-prog-ads/iframe
+     * Method: POST
+     * headers: {
+     *   Authorization: "Bearer ${rillServiceToken}"
+     * },
+     * body: {
+     *   resrouce: "bids_explore"
+     * }
+     */
+
     return (
         <div className="p-6 bg-white rounded-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Basic Embed Dashboard</h2>
