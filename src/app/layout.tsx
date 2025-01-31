@@ -20,8 +20,8 @@ const NAV_ITEMS = [
   {
     header: "Row Access Policies",
     items: [
-      { id: "accesspolicy/pages/rowaccess", label: "Row access policy enabled dashboard" },
-      { id: "accesspolicy/customattributes", label: "Passing custom attributes to metrics view" },
+      { id: "rowaccesspolicy/basic", label: "Row access policy enabled dashboard" },
+      { id: "rowaccesspolicy/custom", label: "Passing custom attributes to metrics view" },
     ]
   }
 ];
