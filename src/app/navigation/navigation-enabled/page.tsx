@@ -3,9 +3,10 @@ import RillFrame from '../../components/RillFrame';
 
 const SimpleIframe = () => {
     const org = 'demo';
-    const project = 'rill-openrtb-prog-ads';
+    const project = 'rill-embed';
     const iframeBody = {
-        resource: 'bids_explore',
+        resource: 'embed_explore',
+        navigation: true
     };
 
     return (

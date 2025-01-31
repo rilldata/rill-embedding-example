@@ -3,13 +3,12 @@ import RillFrame from '../../components/RillFrame';
 
 const SimpleIframe = () => {
     const org = 'demo';
-    const project = 'rill-row-access-policies';
+    const project = 'rill-embed';
     const iframeBody = {
-        resource: 'custom_attributes_metrics_explore',
+        resource: 'auction_custom_access_policy_metrics_explore',
         attributes: {
-            product_category: "Software",
-            region: "Asia",
-            sales_rep_domain: "yahoo.com"
+            app_site_name: "Sling",
+            pub_name: "MobilityWare"
         }
     };
 
@@ -21,7 +20,7 @@ const SimpleIframe = () => {
                 Please see <a className="text-indigo-600 underline hover:text-indigo-800" href='https://github.com/rilldata/rill-examples/blob/main/rill-row-access-policies/metrics/custom_attributes_metrics_explore.yaml#L17'> an example metrics view</a> from our demo project, rill-row-access-policies.
             </p>
             <p>
-                In the following example, we are passing product_category = "Software", sales_rep_domain = "yahoo.com" and region = "Asia" to provide a very specific view to an end user. You'll note that the other values in these dimensions are not visible.
+                In the following example, we are passing app_site_name = "Sling" and pub_name = "MobilityWare" to provide a very specific view to an end user. You'll note that the other values in these dimensions are not visible.
                 If you want to take it to the next level, you can add the "exclude" parameter to the metrics view security policy to remove those columns completely.
             </p>
 
