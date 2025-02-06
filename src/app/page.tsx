@@ -68,7 +68,7 @@ const Home = () => {
         <ul className="space-y-4">
           <li>
             <a
-              href="/row-access-policy/row-access-policy"
+              href="/rowaccesspolicy/basic"
               className="text-indigo-600 underline"
             >
               Row access policy enabled dashboard
@@ -83,7 +83,7 @@ const Home = () => {
           </li>
           <li>
             <a
-              href="/row-access-policy/custom-attributes"
+              href="/rowaccesspolicy/custom"
               className="text-indigo-600 underline"
             >
               Passing custom attributes via the embed URL creation
@@ -99,50 +99,18 @@ const Home = () => {
         </ul>
       </div>
 
-      <div className="mb-8">
-        <h3 className="text-lg font-semibold text-gray-700 mb-2">Other</h3>
-        <ul className="space-y-4">
-          <li>
-            <a
-              href="/other/no-data"
-              className="text-indigo-600 underline"
-            >
-              Error loading embed dashboard
-            </a>
-            : When no rows are returned due to the access policies defined, users will see this view.
-          </li>
-        </ul>
-      </div>
 
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-gray-700 mb-2">Coming Soon</h3>
         <ul className="space-y-4">
           <li>
-            <a
-              href="/other/canvas"
-              className="text-indigo-600 underline"
-            >
-              Canvas dashboard
-            </a>
-            : Embed your Rill canvas dashboard!
+            Canvas dashboard
+            : Embed your Rill Canvas dashboard!
           </li>
           <li>
-            <a
-              href="/views/custom-view"
-              className="text-indigo-600 underline"
-            >
-              Default dashboard views
-            </a>
-            : Create an embed dashboard with a default view defined! Pivot, TDD, or Explore.
-          </li>
-          <li>
-            <a
-              href="/views/filtered-view"
-              className="text-indigo-600 underline"
-            >
-              Initial filtered dashboard views
-            </a>
-            : Embed a dashboard with default filters enabled. Your users can modify the dashboard, but a refresh will return it to your filtered view.
+
+            Default dashboard views
+            : Create an embed dashboard that automatically displays a pivot, TDD, or explore page. Add predefined filters to show an opinionated view.
           </li>
         </ul>
       </div>
