@@ -20,8 +20,8 @@ const SimpleIframe = () => {
                 Please see <a className="text-indigo-600 underline hover:text-indigo-800" href='https://github.com/rilldata/rill-examples/blob/main/rill-row-access-policies/metrics/custom_attributes_metrics_explore.yaml#L17'> an example metrics view</a> from our demo project, rill-row-access-policies.
             </p>
             <p>
-                In the following example, we are passing app_site_name = "Sling" and pub_name = "MobilityWare" to provide a very specific view to an end user. You'll note that the other values in these dimensions are not visible.
-                If you want to take it to the next level, you can add the "exclude" parameter to the metrics view security policy to remove those columns completely.
+                In the following example, we are passing app_site_name = `Sling` and pub_name = `MobilityWare` to provide a very specific view to an end user. Note that the other values in these dimensions are not visible.
+                If you want to take it to the next level, you can add the `exclude` parameter to the metrics view security policy to remove those columns completely.
             </p>
 
             <div className="mb-8">

@@ -17,7 +17,7 @@ const SimpleIframe = () => {
                 Please see <a className="text-indigo-600 underline hover:text-indigo-800" href='https://github.com/rilldata/rill-examples/blob/main/rill-row-access-policies/metrics/basic_row_access_policy_metrics.yaml#L18'> an example metrics view</a> from our demo project, rill-row-access-policies.
             </p>
             <p>
-                In the following example, we are passing the user_email, "user@fubo.tv". Based on the defined row access policy, we are mapping domain of user_email to "App Site Domain" dimension.
+                In the following example, we are passing the user_email, `user@fubo.tv`. Based on the defined row access policy, we are mapping domain of user_email to `App Site Domain` dimension.
             </p>
 
             <div className="mb-8">

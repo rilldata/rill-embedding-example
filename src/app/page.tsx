@@ -4,7 +4,7 @@ const Home = () => {
       <h2 className="text-2xl font-bold text-gray-800 mb-4">Rill Embedding Examples</h2>
       <p className="text-gray-600 mb-6">
         In each of the following pages, you can navigate the corresponding
-        <code className="bg-gray-100 text-gray-800 px-1 rounded">src/[route]/[page]</code> in the{' '}
+        <code className="bg-gray-100 text-gray-800 px-1 rounded">src/app/[page]</code> in the{' '}
         <a
           href="https://github.com/rilldata/rill-embedding-example"
           className="text-indigo-600 underline"
