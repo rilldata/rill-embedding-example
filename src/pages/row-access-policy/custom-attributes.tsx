@@ -78,8 +78,8 @@ export default function CustomAttributes() {
 body: JSON.stringify({
                 resource: rillDashboard,
                 attributes: {
-                    "custom_attribute_from_embed": "Value1", //maps to "Disney" via the mapping_custom file in rill-openrtb project
-                    "embed_pub_name": "LG USA"
+                    "app_site_name": "FuboTV", 
+                    "pub_name": "Taboola"
                 }
                 // You can pass additional parameters for row-level security policies here.
                 // For details, see: https://docs.rilldata.com/integrate/embedding
@@ -88,8 +88,9 @@ body: JSON.stringify({
 #Using the custom attribute in the row filter directly.
 security:
   access: true
-  row_filter: "Pub_Name = '{{ .user.embed_pub_name }}'"
-  #row_filter: "Pub_Name IN (SELECT PubName FROM test WHERE custom_attribute = '{{ .user.custom_attribute_from_embed }}')"
+    row_filter: >
+        app_site_name = '{{ .user.app_site_name }}' AND
+        pub_name = '{{ .user.pub_name }}' 
 
 `}
 
@@ -127,11 +128,7 @@ security:
               textAlign: 'left'
             }}
           >
-            <h3> Related Links: </h3>
-            <a href='https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br />
-            <a href='https://docs.rilldata.com/manage/security'> Dashboard Access Policy documentation</a> <br />
-            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/custom-attribute-iframe.js'> iframe code</a> <br />
-            <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/custom_attribute_explore'> Rill Dashboard</a> <br />
+
           </div>
         </div>
 

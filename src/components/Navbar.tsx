@@ -43,16 +43,6 @@ export default function Navbar() {
         Error loading embed dashboard
       </Link>
 
-      <h3>Coming soon</h3>
-      <Link href="/other/canvas" style={{ textDecoration: 'none', color: '#3524c7' }}>
-        Canvas dashboard
-      </Link>
-      <Link href="/views/custom-view" style={{ textDecoration: 'none', color: '#3524c7' }}>
-        Default views
-      </Link>
-      <Link href="/views/filtered-view" style={{ textDecoration: 'none', color: '#3524c7' }}>
-        Initial filtered views
-      </Link>
     </nav>
   );
 }
