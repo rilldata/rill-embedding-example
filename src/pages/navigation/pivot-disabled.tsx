@@ -108,10 +108,6 @@ embeds:
               textAlign: 'left'
             }}
           >
-            <h3> Related Links: </h3>
-            <a href='https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br />
-            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/pivot-disabled-iframe.js'> iframe code</a> <br />
-            <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_explore'> Rill Dashboard</a> <br />
           </div>
         </div>
 

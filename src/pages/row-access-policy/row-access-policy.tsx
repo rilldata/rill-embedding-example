@@ -76,19 +76,15 @@ export default function RowAccessPolicies() {
 #Passing the user_email into the iframe creation request
 body: JSON.stringify({
     resource: rillDashboard,
-    user_email: 'test@domain.com',
+    user_email: 'test@desmoinesregister.com'
     // You can pass additional parameters for row-level security policies here.
     // For details, see: https://docs.rilldata.com/integrate/embedding
 }),
 #Using the domain of the user to filter the rows based off a mapping table.
 security:
     access: true
-    row_filter: "Pub_Name IN (SELECT PubName FROM mapping WHERE domain = '{{ .user.domain }}')"
+  row_filter: app_site_domain = '{{ .user.domain }}'
 
-#Sample mapping table that maps domain.com to Disney which is used in the row access policy.
-SELECT * FROM (VALUES 
-      ('Disney', 'domain.com')
-    ) AS t(PubName, domain)   
 `}
 
           </code>
@@ -125,11 +121,7 @@ SELECT * FROM (VALUES
               textAlign: 'left'
             }}
           >
-            <h3> Related Links: </h3>
-            <a href='https://docs.rilldata.com/integrate/embedding'> Embedding documentation</a> <br />
-            <a href='https://docs.rilldata.com/manage/security'> Dashboard Access Policy documentation</a> <br />
-            <a href='https://github.com/rilldata/rill-embedding-example/blob/main/src/pages/api/rowpol-iframe.js'> iframe code</a> <br />
-            <a href='https://ui.rilldata.com/demo/rill-openrtb-prog-ads/explore/auction_row_policies_explore'> Rill Dashboard</a> <br />
+
           </div>
 
         </div>
