@@ -80,27 +80,8 @@ export default function Home() {
       : When no rows are returned due to the access policies defined, users will see this view.
       <br />
       <br />
+      <br />
 
-      <h3>Coming soon:</h3>
-      <Link href="/other/canvas" style={{ textDecoration: 'none', color: '#3524c7' }}>
-        Canvas dashboard
-      </Link>
-      : Embed your Rill canvas dashboard!
-      <br />
-      <br />
-      <Link href="/views/custom-view" style={{ textDecoration: 'none', color: '#3524c7' }}>
-        Default dashboard views
-      </Link>
-      : Create an embed dashboard with a default view defined! Pivot, TDD, or Explore.
-      <br />
-      <br />
-      <Link href="/views/filtered-view" style={{ textDecoration: 'none', color: '#3524c7' }}>
-        Initial filtered dashboard views
-      </Link>
-      : Embed a dashboard with default filters enabled. Your users can modify the dashboard, but a refresh will return it
-      back to your filtered view.
-      <br />
-      <br />
 
       <p>
         For information on these features, reach out to us at{' '}
