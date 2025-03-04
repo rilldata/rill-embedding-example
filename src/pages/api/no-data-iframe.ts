@@ -24,7 +24,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             },
             body: JSON.stringify({
                 resource: rillDashboard,
-                ttl_seconds: -1,
+                ttl_seconds: 0,
                 attributes: {
                 }
                 // You can pass additional parameters for row-level security policies here.
