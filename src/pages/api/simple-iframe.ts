@@ -24,7 +24,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 Authorization: `Bearer ${rillServiceToken}`,
             },
             body: JSON.stringify({
-                resource: rillDashboard
+                resource: rillDashboard,
+                ttl_seconds: '-1'
                 // You can pass additional parameters for row-level security policies here.
                 // For details, see: https://docs.rilldata.com/integrate/embedding
             }),
