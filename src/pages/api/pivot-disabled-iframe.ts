@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             body: JSON.stringify({
                 resource: rillDashboard,
                 user_email: 'test@domain.com',
-                ttl_seconds: '-1'
+                ttl_seconds: -1
                 // You can pass additional parameters for row-level security policies here.
                 // For details, see: https://docs.rilldata.com/integrate/embedding
             }),
