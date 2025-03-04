@@ -27,7 +27,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 attributes: {
                     "app_site_name": "FuboTV",  //maps to "Disney" via the mapping_custom file in rill-openrtb project
                     "pub_name": "Taboola"
-                }
+                },
+                ttl_seconds: 0
                 // You can pass additional parameters for row-level security policies here.
                 // For details, see: https://docs.rilldata.com/integrate/embedding
             }),
