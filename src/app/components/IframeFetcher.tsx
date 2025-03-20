@@ -20,8 +20,7 @@ interface IframeFetcherProps {
 }
 
 export const fetchIframeUrl = async (org: string, project: string, body: IframeFetcherProps['body']) => {
-    // const rillServiceToken = process.env.RILL_SERVICE_TOKEN!;
-    const rillServiceToken = "rill_svc_8UoW8cLAgHyqSJKCV9eNCejETlGhrZYuAGxFhnlKvC8zyyEadeE5RI"
+    const rillServiceToken = process.env.RILL_SERVICE_TOKEN!;
     const url = `https://admin.rilldata.com/v1/organizations/${org}/projects/${project}/iframe`;
 
     const response = await fetch(url, {
