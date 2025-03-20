@@ -23,12 +23,30 @@ const Home = () => {
         <ul className="space-y-4">
           <li>
             <a
-              href="/views/simple-iframe"
+              href="/views/custom-view"
               className="text-indigo-600 underline"
             >
               Embed Explore dashboard
             </a>
             : An embed dashboard that defaults to the Explore page view. Navigation to other types of views is allowed.
+          </li>
+          {/* <li>
+            <a
+              href="/views/simple-iframe"
+              className="text-indigo-600 underline"
+            >
+              Custom View Explore dashboard
+            </a>
+            : An embed dashboard that uses the API get_state and set_state to create different views.
+          </li> */}
+          <li>
+            <a
+              href="/views/canvas"
+              className="text-indigo-600 underline"
+            >
+              Canvas dashboard
+            </a>
+            : An embedded Canvas dashboard!
           </li>
         </ul>
       </div>
@@ -100,20 +118,6 @@ const Home = () => {
       </div>
 
 
-      <div className="mb-8">
-        <h3 className="text-lg font-semibold text-gray-700 mb-2">Coming Soon</h3>
-        <ul className="space-y-4">
-          <li>
-            Canvas dashboard
-            : Embed your Rill Canvas dashboard!
-          </li>
-          <li>
-
-            Default dashboard views
-            : Create an embed dashboard that automatically displays a pivot, TDD, or explore page. Add predefined filters to show an opinionated view.
-          </li>
-        </ul>
-      </div>
 
       <p className="text-gray-600">
         For information on these features, reach out to us at{' '}

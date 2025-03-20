@@ -7,7 +7,9 @@ const NAV_ITEMS = [
   {
     header: "Views",
     items: [
-      { id: "views/simple-iframe", label: "Embed Explore dashboard" }
+      { id: "views/simple-iframe", label: "Embed Explore dashboard" },
+      // { id: "views/custom-view", label: "Custom View Explore dashboard" },
+      { id: "views/canvas", label: "Canvas Dashboards" }
     ],
   },
   {

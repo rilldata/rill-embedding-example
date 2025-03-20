@@ -3,9 +3,10 @@ import RillFrame from '../../components/RillFrame';
 
 const SimpleIframe = () => {
     const org = 'demo';
-    const project = 'rill-embed';
+    const project = 'nyc-canvas-jam';
     const iframeBody = {
-        resource: 'embed_explore',
+        resource: 'Leaderboard',
+        type: 'canvas'
     };
 
     /**
@@ -23,12 +24,12 @@ const SimpleIframe = () => {
 
     return (
         <div className="p-6 bg-white rounded-lg">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Basic Embed Dashboard</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Canvas Dashboard</h2>
             <p className="text-gray-600 mb-6">
-                Basic example of embedding an Explore dashboard into your webpage.
+                Below is an example of Canvas Dashboards!
             </p>
 
-            <div className="mb-8">
+            <div className="mb-8  w-[1200px] mx-auto">
                 <IframeFetcher org={org} project={project} body={iframeBody}>
                     {(iframeUrl, error) => <RillFrame iframeUrl={iframeUrl} error={error} />}
                 </IframeFetcher>
