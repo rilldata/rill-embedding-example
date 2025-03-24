@@ -1,4 +1,4 @@
-import IframeFetcher from '../../components/iframeFetcher.tsx';
+import IframeFetcher from '../../components/IframeFetcher';
 
 const SimpleIframe = () => {
     const org = 'demo';

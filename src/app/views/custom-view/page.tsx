@@ -1,4 +1,4 @@
-import IframeFetcher from '../../components/iframeFetcher';
+import IframeFetcher from '../../components/IframeFetcher';
 
 
 const SimpleIframe = () => {
