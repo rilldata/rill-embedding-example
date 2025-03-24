@@ -19,6 +19,7 @@ export async function POST(req: Request) {
     const data = await response.json();
 
     if (!response.ok) {
+
         return new Response(JSON.stringify({ error: data.message || 'Failed to fetch iframe URL' }), { status: 500 });
     }
 
