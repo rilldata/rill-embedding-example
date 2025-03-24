@@ -8,8 +8,8 @@ interface IframeFetcherProps {
     project: string;
     body: {
         resource: string;
-        attributes?: Record<string, any>;
-        [key: string]: any;
+        attributes?: Record<string, string | number | boolean>;
+        [key: string]: unknown;
     };
 }
 
@@ -29,9 +29,14 @@ const IframeFetcher = ({ org, project, body }: IframeFetcherProps) => {
                 const data = await res.json();
                 if (!res.ok) throw new Error(data.error || 'Failed to fetch iframe');
                 setIframeUrl(data.iframeUrl);
-            } catch (err: any) {
-                setError(err.message);
+            } catch (err) {
+                if (err instanceof Error) {
+                    setError(err.message);
+                } else {
+                    setError('Unknown error');
+                }
             }
+
         };
 
         fetchUrl();
