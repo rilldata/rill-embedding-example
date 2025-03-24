@@ -1,5 +1,4 @@
-import IframeFetcher from '../../components/iframeFetcher';
-
+import IframeFetcher from '../../components/iframeFetcher.tsx';
 const SimpleIframe = () => {
     const org = 'demo';
     const project = 'rill-embed';
