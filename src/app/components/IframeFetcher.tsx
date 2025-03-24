@@ -1,52 +1,46 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-'use server';
+'use client';
 
-import { ReactNode } from 'react';
-
-/**
- * This examples shows the request towards Rill to fetch a iframe URL
- * The iframe url is then passed on to the client and displayed to the end-user
- */
+import { useEffect, useState } from 'react';
+import RillFrame from './RillFrame';
 
 interface IframeFetcherProps {
-    org: string; // Your rill organization
-    project: string; // Your rill project containing the resource you want to embed
+    org: string;
+    project: string;
     body: {
-        resource: string; // The Rill resource you would want to embed
-        navigation?: boolean; // Defaults to false
-        [key: string]: any; // Allows additional dynamic parameters such as attributes
+        resource: string;
+        attributes?: Record<string, any>;
+        [key: string]: any;
     };
-    children: (iframeUrl: string | null, error: string | null) => ReactNode;
 }
 
-export const fetchIframeUrl = async (org: string, project: string, body: IframeFetcherProps['body']) => {
-    const rillServiceToken = process.env.RILL_SERVICE_TOKEN!;
-    const url = `https://admin.rilldata.com/v1/organizations/${org}/projects/${project}/iframe`;
+const IframeFetcher = ({ org, project, body }: IframeFetcherProps) => {
+    const [iframeUrl, setIframeUrl] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${rillServiceToken}`,
-        },
-        body: JSON.stringify(body),
-    });
+    useEffect(() => {
+        const fetchUrl = async () => {
+            try {
+                const res = await fetch('/api/get-iframe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ org, project, body }),
+                });
 
-    const data = await response.json();
-    if (!response.ok) {
-        throw new Error(data.message || 'Failed to fetch iframe URL');
-    }
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Failed to fetch iframe');
+                setIframeUrl(data.iframeUrl);
+            } catch (err: any) {
+                setError(err.message);
+            }
+        };
 
-    return data.iframeSrc;
-};
+        fetchUrl();
+    }, [org, project, JSON.stringify(body)]);
 
-const IframeFetcher = async ({ org, project, body, children }: IframeFetcherProps) => {
-    try {
-        const iframeUrl = await fetchIframeUrl(org, project, body);
-        return <>{children(iframeUrl, null)}</>;
-    } catch (error: any) {
-        return <>{children(null, error.message)}</>;
-    }
+    if (error) return <p className="text-red-500">Error loading iframe: {error}</p>;
+    if (!iframeUrl) return <p>Loading...</p>;
+
+    return <RillFrame iframeUrl={iframeUrl} error={null} />;
 };
 
 export default IframeFetcher;

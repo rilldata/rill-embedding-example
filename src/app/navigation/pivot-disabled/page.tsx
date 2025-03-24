@@ -1,4 +1,4 @@
-import IframeFetcher from '../../components/IframeFetcher';
+import IframeFetcher from '../../components/iframeFetcher'
 import RillFrame from '../../components/RillFrame';
 
 const SimpleIframe = () => {
@@ -19,7 +19,6 @@ const SimpleIframe = () => {
 
             <div className="mb-8">
                 <IframeFetcher org={org} project={project} body={iframeBody}>
-                    {(iframeUrl, error) => <RillFrame iframeUrl={iframeUrl} error={error} />}
                 </IframeFetcher>
             </div>
 
