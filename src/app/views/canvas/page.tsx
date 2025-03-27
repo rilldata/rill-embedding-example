@@ -45,7 +45,7 @@ const SimpleIframe = () => {
                 </li>
                 <li>
                     <a
-                        href="https://github.com/rilldata/rill-embedding-example/blob/main/src/src/app/components/IframeFetcher.tsx"
+                        href="https://github.com/rilldata/rill-embedding-example/blob/main/src/app/api/get-iframe/route.tsx"
                         className="text-indigo-600 underline hover:text-indigo-800"
                     >
                         Iframe Code
