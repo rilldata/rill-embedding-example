@@ -26,7 +26,7 @@ const SimpleIframe = () => {
             </div>
             <p>
                 Unlike in the basic example, where we are using a default user attribute, here we are using custom attributes.
-                In this example, we are passing app_site_name = `Sling` and pub_name = `MobilityWare` to provide a very specific view to an end user. Note that the other values in these dimensions are not visible.
+                In this example, we are passing <em>app_site_name = Sling</em> and <em>pub_name = MobilityWare</em> to provide a very specific view to an end user. Note that the other values in these dimensions are not visible.
                 The variables can be defined in the front end of your application and passed to Rill during the iframe request.
 
                 If you want to take it to the next level, you can add the `exclude` parameter to the metrics view security policy to remove those columns completely.

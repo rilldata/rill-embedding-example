@@ -23,7 +23,7 @@ const SimpleIframe = () => {
             </div>
             <p>
                 In this example, a user logs into your application with the email <em>user@fubo.tv</em>. Based on the defined row access policy, we are mapping domain of user_email to <em>App Site Domain</em> dimension. Note that the display_name and name of the dimension are not always the same.
-                When you pass the user_email attribute to the iframe, the dashboard will display the metrics for the user's email domain. The user will not be able to see data for other domains. You can also completely remove the column <em>App Site Domain</em> from the dashboard, using further metrics policies.
+                When you pass the user_email attribute to the iframe, the dashboard will display the metrics for the users email domain. The user will not be able to see data for other domains. You can also completely remove the column <em>App Site Domain</em> from the dashboard, using further metrics policies.
                 <br /><br />
 
             </p>
