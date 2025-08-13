@@ -25,6 +25,13 @@ const NAV_ITEMS = [
       { id: "rowaccesspolicy/basic", label: "Row access policy enabled dashboard" },
       { id: "rowaccesspolicy/custom", label: "Passing custom attributes to metrics view" },
     ]
+  },
+  {
+    header: "Embedded getState.setState",
+    items: [
+      { id: "setState/basic", label: "Basic getState" },
+
+    ]
   }
 ];
 
