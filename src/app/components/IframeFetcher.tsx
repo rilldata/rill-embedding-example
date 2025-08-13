@@ -40,7 +40,7 @@ const IframeFetcher = ({ org, project, body }: IframeFetcherProps) => {
         };
 
         fetchUrl();
-    }, [org, project, JSON.stringify(body)]);
+    }, [org, project, body]);
 
     if (error) return <p className="text-red-500">Error loading iframe: {error}</p>;
     if (!iframeUrl) return <p>Loading...</p>;
