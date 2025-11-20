@@ -23,10 +23,29 @@ const SimpleIframe = () => {
 
             <div className="space-y-6">
                 <div>
+                    <h3 className="text-lg font-semibold text-gray-700 mb-3">getState() Method</h3>
+                    <p className="text-gray-600 mb-3">
+                        Retrieves the current state of the embedded dashboard as a URL query string. This includes the current view,
+                        filters, time ranges, and other dashboard configurations. Use this to capture and save dashboard states or
+                        to synchronize multiple dashboards.
+                    </p>
+                    <div className="bg-gray-100 p-3 rounded font-mono text-sm">
+                        {`iframe.contentWindow.postMessage({
+  id: 1,
+  method: "getState",
+}, "*");`}
+                    </div>
+                    <p className="text-gray-600 mt-2">
+                        <strong>Response:</strong> <code className="bg-gray-200 px-2 py-1 rounded">{"{ \"id\": 1, \"result\": \"view=explore&tr=PT24H&grain=hour&...\" }"}</code>
+                    </p>
+                </div>
+
+                <div>
                     <h3 className="text-lg font-semibold text-gray-700 mb-3">setState(state) Method</h3>
                     <p className="text-gray-600 mb-3">
                         Sets the current state inside the iframe. You can use this to programmatically change views, apply filters,
-                        or modify the dashboard configuration.
+                        or modify the dashboard configuration. The state parameter should be a URL query string with the desired
+                        dashboard parameters.
                     </p>
                     <div className="bg-gray-100 p-3 rounded font-mono text-sm">
                         {`iframe.contentWindow.postMessage({

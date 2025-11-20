@@ -16,6 +16,8 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const [iframeUrl, setIframeUrl] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const [currentState, setCurrentState] = useState<string | null>(null);
+    const [isLoadingState, setIsLoadingState] = useState(false);
 
     // Fetch iframe URL
     useEffect(() => {
@@ -42,6 +44,22 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
         fetchUrl();
     }, [org, project, body]);
 
+    // Listen for messages from iframe
+    useEffect(() => {
+        const handleMessage = (event: MessageEvent) => {
+            if (event.data && event.data.result !== undefined) {
+                console.log("Received message from iframe:", event.data);
+                if (typeof event.data.result === 'string') {
+                    setCurrentState(event.data.result);
+                    setIsLoadingState(false);
+                }
+            }
+        };
+
+        window.addEventListener('message', handleMessage);
+        return () => window.removeEventListener('message', handleMessage);
+    }, []);
+
     const sendRequest = (method: string, params?: string) => {
         if (!iframeRef.current?.contentWindow) {
             return;
@@ -56,6 +74,12 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
 
     const handleSetState = (state: string) => {
         sendRequest("setState", state);
+    };
+
+    const handleGetState = () => {
+        setIsLoadingState(true);
+        setCurrentState(null);
+        sendRequest("getState");
     };
 
     const presetStates = [
@@ -76,6 +100,7 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
         <div className="space-y-4">
             {/* Control Panel */}
             <div className="bg-gray-50 p-4 rounded-lg border">
+                <h4 className="font-semibold text-gray-700 mb-3">setState Controls - Click to change dashboard view:</h4>
                 <div className="mb-4">
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                         {presetStates.map((preset, index) => (
@@ -89,6 +114,24 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
                         ))}
                     </div>
                 </div>
+
+                <h4 className="font-semibold text-gray-700 mb-3 mt-6">getState Control - Get current dashboard state:</h4>
+                <button
+                    onClick={handleGetState}
+                    disabled={isLoadingState}
+                    className="bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 text-white text-sm font-medium py-2 px-4 rounded transition-colors"
+                >
+                    {isLoadingState ? 'Loading...' : 'Get Current State'}
+                </button>
+
+                {currentState && (
+                    <div className="mt-4">
+                        <h5 className="font-medium text-gray-700 mb-2">Current Dashboard State:</h5>
+                        <div className="bg-gray-800 text-green-400 p-4 rounded font-mono text-xs overflow-x-auto">
+                            {currentState}
+                        </div>
+                    </div>
+                )}
             </div>
 
             {/* Iframe */}
