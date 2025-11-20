@@ -47,10 +47,24 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
     // Listen for messages from iframe
     useEffect(() => {
         const handleMessage = (event: MessageEvent) => {
-            if (event.data && event.data.result !== undefined) {
-                console.log("Received message from iframe:", event.data);
-                if (typeof event.data.result === 'string') {
-                    setCurrentState(event.data.result);
+            console.log("Received message from iframe:", event.data);
+
+            // Check if this is a response from the iframe
+            if (event.data && typeof event.data === 'object') {
+                // Handle getState response
+                if (event.data.result !== undefined) {
+                    const result = event.data.result;
+                    console.log("Result type:", typeof result, "Result:", result);
+
+                    // Store the result regardless of type, converting to string if needed
+                    if (typeof result === 'string') {
+                        setCurrentState(result);
+                    } else if (result === true || result === false) {
+                        // setState returns boolean
+                        console.log("setState result:", result);
+                    } else if (result !== null) {
+                        setCurrentState(JSON.stringify(result, null, 2));
+                    }
                     setIsLoadingState(false);
                 }
             }
@@ -88,14 +102,6 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
         { label: "Chart View (24H)", value: "view=tdd&grain=day&compare_dim=auction_type&measure=avg_bid_floor&chart_type=line" }
     ];
 
-    if (error) {
-        return <div className="text-red-500">Error loading iframe: {error}</div>;
-    }
-
-    if (!iframeUrl) {
-        return <div>Loading...</div>;
-    }
-
     return (
         <div className="space-y-4">
             {/* Control Panel */}
@@ -107,7 +113,9 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
                             <button
                                 key={index}
                                 onClick={() => handleSetState(preset.value)}
-                                className="bg-green-500 hover:bg-green-600 text-white text-xs font-medium py-2 px-3 rounded transition-colors"
+                                disabled={!iframeUrl}
+                                style={{ backgroundColor: !iframeUrl ? '#d1d5db' : '#3525c7' }}
+                                className="hover:opacity-90 text-white text-xs font-medium py-2 px-3 rounded transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 {preset.label}
                             </button>
@@ -116,33 +124,45 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
                 </div>
 
                 <h4 className="font-semibold text-gray-700 mb-3 mt-6">getState Control - Get current dashboard state:</h4>
-                <button
-                    onClick={handleGetState}
-                    disabled={isLoadingState}
-                    className="bg-blue-500 hover:bg-blue-600 disabled:bg-blue-300 text-white text-sm font-medium py-2 px-4 rounded transition-colors"
-                >
-                    {isLoadingState ? 'Loading...' : 'Get Current State'}
-                </button>
+                <div className="flex gap-3 items-start">
+                    <button
+                        onClick={handleGetState}
+                        disabled={isLoadingState || !iframeUrl}
+                        style={{ backgroundColor: (isLoadingState || !iframeUrl) ? '#d1d5db' : '#3525c7' }}
+                        className="hover:opacity-90 disabled:cursor-not-allowed text-white text-sm font-medium py-2 px-4 rounded transition-all flex-shrink-0"
+                    >
+                        {isLoadingState ? 'Loading...' : 'Get Current State'}
+                    </button>
 
-                {currentState && (
-                    <div className="mt-4">
-                        <h5 className="font-medium text-gray-700 mb-2">Current Dashboard State:</h5>
-                        <div className="bg-gray-800 text-green-400 p-4 rounded font-mono text-xs overflow-x-auto">
-                            {currentState}
+                    {currentState && (
+                        <div className="flex-1">
+                            <div className="bg-gray-800 text-green-400 p-3 rounded font-mono text-xs overflow-x-auto max-h-32 overflow-y-auto">
+                                {currentState}
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
 
             {/* Iframe */}
-            <iframe
-                ref={iframeRef}
-                src={iframeUrl}
-                width="100%"
-                height="800px"
-                allowFullScreen
-                className="border rounded-lg"
-            />
+            {error ? (
+                <div className="text-red-500 p-4 bg-red-50 rounded-lg border border-red-200">
+                    Error loading iframe: {error}
+                </div>
+            ) : !iframeUrl ? (
+                <div className="p-4 bg-gray-100 rounded-lg border text-center text-gray-600">
+                    Loading iframe...
+                </div>
+            ) : (
+                <iframe
+                    ref={iframeRef}
+                    src={iframeUrl}
+                    width="100%"
+                    height="800px"
+                    allowFullScreen
+                    className="border rounded-lg"
+                />
+            )}
         </div>
     );
 };
