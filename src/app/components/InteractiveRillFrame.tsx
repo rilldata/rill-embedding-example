@@ -136,7 +136,7 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
 
                     {currentState && (
                         <div className="flex-1">
-                            <div className="bg-gray-800 text-green-400 p-3 rounded font-mono text-xs overflow-x-auto max-h-32 overflow-y-auto">
+                            <div className="bg-gray-200 text-black  p-3 rounded font-mono text-xs overflow-x-auto max-h-32 overflow-y-auto">
                                 {currentState}
                             </div>
                         </div>
