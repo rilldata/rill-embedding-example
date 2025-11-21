@@ -117,7 +117,20 @@ const Home = () => {
         </ul>
       </div>
 
-
+      <div className="mb-8">
+        <h3 className="text-lg font-semibold text-gray-700 mb-2">Iframe API</h3>
+        <ul className="space-y-4">
+          <li>
+            <a
+              href="/setState/basic"
+              className="text-indigo-600 underline"
+            >
+              getState and setState API Demo
+            </a>
+            : Learn how to programmatically control and monitor the state of an embedded Rill dashboard using the getState and setState methods via the postMessage API.
+          </li>
+        </ul>
+      </div>
 
       <p className="text-gray-600">
         For information on these features, reach out to us at{' '}
