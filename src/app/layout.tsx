@@ -32,6 +32,17 @@ const NAV_ITEMS = [
       { id: "setState/basic", label: "Basic getState" },
 
     ]
+  },
+  {
+    header: "Themes",
+    items: [
+      { id: "themes/ocean-wave", label: "Ocean Wave" },
+      { id: "themes/forest-green", label: "Forest Green" },
+      { id: "themes/sunset-gradient", label: "Sunset Gradient" },
+      { id: "themes/midnight-purple", label: "Midnight Purple" },
+      { id: "themes/rose-gold", label: "Rose Gold" },
+      { id: "themes/slate-modern", label: "Slate Modern" },
+    ]
   }
 ];
 
