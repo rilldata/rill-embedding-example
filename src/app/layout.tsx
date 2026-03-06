@@ -17,6 +17,7 @@ const NAV_ITEMS = [
     items: [
       { id: "navigation/navigation-enabled", label: "Embed with navigation" },
       { id: "navigation/pivot-disabled", label: "Pivot disabled embed dashboard" },
+      { id: "navigation/ai-disabled", label: "AI disabled" },
     ],
   },
   {
