@@ -32,7 +32,7 @@ const AiDisabled = () => {
                 This uses a template expression to disable the dashboard chat feature when the user is viewing via an embed.
             </p>
 
-            <div className="flex border-b border-gray-200 mb-6">
+            <div className="flex border-b border-gray-200">
                 {TABS.map((t, i) => (
                     <button
                         key={t.label}
