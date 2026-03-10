@@ -70,13 +70,16 @@ const Home = () => {
             >
               Pivot disabled dashboard
             </a>
-            : Adding a few lines to your dashboard allows you to disable the pivot view from your viewers. Please refer to the{' '}
+            : Adding a few lines to your dashboard allows you to disable the pivot view from your viewers. 
+          </li>
+           <li>
             <a
-              href="https://github.com/rilldata/rill-examples/blob/main/rill-openrtb-prog-ads/dashboards/pivot_disabled.yaml"
+              href="/navigation/ai-disabled"
               className="text-indigo-600 underline"
             >
-              Explore dashboard yaml file
-            </a>.
+              AI disabled dashboard
+            </a>
+            : Adding a few lines to your dashboard allows you to disable the AI chat from your viewers. 
           </li>
         </ul>
       </div>

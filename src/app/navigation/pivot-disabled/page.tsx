@@ -10,8 +10,13 @@ const SimpleIframe = () => {
         <div className="p-6 bg-white rounded-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Pivot view disabled dashboard</h2>
             <p className="text-gray-600 mb-6">
-                It is possible to disable the pivot table on an explore dashboard. You will need to enable the following parameter on the explore dashboard.
-
+                It is possible to disable the pivot table on an explore dashboard. To disable the pivot view in your Rill project, add the following to your explore dashboard YAML:
+            </p>
+            <pre className="bg-gray-100 text-gray-800 p-4 rounded-lg mb-6 text-sm font-mono overflow-x-auto border border-gray-200">
+{`embeds:
+  hide_pivot: true`}
+            </pre>
+            <p className="text-gray-600 mb-6">
                 Please see <a className="text-indigo-600 underline hover:text-indigo-800" href='https://github.com/rilldata/rill-examples/blob/main/rill-openrtb-prog-ads/dashboards/auction_explore.yaml#L19'> an example explore dashboard </a> from our demo project.
             </p>
 
