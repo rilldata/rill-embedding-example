@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import RillFrame from './RillFrame';
 
 interface IframeFetcherProps {
@@ -16,6 +16,7 @@ interface IframeFetcherProps {
 const IframeFetcher = ({ org, project, body }: IframeFetcherProps) => {
     const [iframeUrl, setIframeUrl] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const bodyString = useMemo(() => JSON.stringify(body), [body]);
 
     useEffect(() => {
         const fetchUrl = async () => {
@@ -23,7 +24,7 @@ const IframeFetcher = ({ org, project, body }: IframeFetcherProps) => {
                 const res = await fetch('/api/get-iframe', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ org, project, body }),
+                    body: JSON.stringify({ org, project, body: JSON.parse(bodyString) }),
                 });
 
                 const data = await res.json();
@@ -40,7 +41,7 @@ const IframeFetcher = ({ org, project, body }: IframeFetcherProps) => {
         };
 
         fetchUrl();
-    }, [org, project, body]);
+    }, [org, project, bodyString]);
 
     if (error) return <p className="text-red-500">Error loading iframe: {error}</p>;
     if (!iframeUrl) return <p>Loading...</p>;
