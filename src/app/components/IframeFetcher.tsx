@@ -30,7 +30,7 @@ const IframeFetcher = ({ org, project, body }: IframeFetcherProps) => {
 
         const fetchUrl = async () => {
             try {
-                const res = await fetch('/api/get-iframe', {
+                const res = await fetch('/.netlify/functions/get-iframe', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ org, project, body: JSON.parse(bodyString) }),
