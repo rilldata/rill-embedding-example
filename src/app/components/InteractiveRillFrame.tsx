@@ -47,21 +47,16 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
     // Listen for messages from iframe
     useEffect(() => {
         const handleMessage = (event: MessageEvent) => {
-            console.log("Received message from iframe:", event.data);
-
             // Check if this is a response from the iframe
             if (event.data && typeof event.data === 'object') {
                 // Handle getState response
                 if (event.data.result !== undefined) {
                     const result = event.data.result;
-                    console.log("Result type:", typeof result, "Result:", result);
-
                     // Store the result regardless of type, converting to string if needed
                     if (typeof result === 'string') {
                         setCurrentState(result);
                     } else if (result === true || result === false) {
                         // setState returns boolean
-                        console.log("setState result:", result);
                     } else if (result !== null) {
                         setCurrentState(JSON.stringify(result, null, 2));
                     }
@@ -82,7 +77,6 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
         const id = Math.random().toString(36).substr(2, 9);
         const message = { id, method, ...(params && { params }) };
 
-        console.log("Sending message:", message);
         iframeRef.current.contentWindow.postMessage(message, "*");
     };
 
