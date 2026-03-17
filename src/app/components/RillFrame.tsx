@@ -12,8 +12,9 @@ const IframeRenderer = ({ iframeUrl, error }: IframeRendererProps) => {
 
     useEffect(() => {
         const handleMessage = (event: MessageEvent) => {
-            console.log('[RillFrame] postMessage received:', event.origin, event.data);
-            // TODO: once we identify the right message, use it to set ready=true
+            if (event.origin === 'https://ui.rilldata.com' && event.data?.method === 'ready') {
+                setReady(true);
+            }
         };
 
         window.addEventListener('message', handleMessage);
@@ -37,7 +38,6 @@ const IframeRenderer = ({ iframeUrl, error }: IframeRendererProps) => {
                 height="1000px"
                 allowFullScreen
                 style={{ visibility: ready ? 'visible' : 'hidden', height: ready ? '1000px' : '0' }}
-                onLoad={() => setReady(true)}
             />
         </>
     );
