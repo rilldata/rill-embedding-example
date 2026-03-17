@@ -1,4 +1,6 @@
-export default async (req: Request) => {
+import type { Config, Context } from "@netlify/functions";
+
+export default async (req: Request, context: Context) => {
     if (req.method !== 'POST') {
         return new Response('Method not allowed', { status: 405 });
     }
@@ -29,4 +31,13 @@ export default async (req: Request) => {
     return new Response(JSON.stringify({ iframeUrl: data.iframeSrc }), {
         headers: { 'Content-Type': 'application/json' },
     });
+};
+
+export const config: Config = {
+    path: "/.netlify/functions/get-iframe",
+    rateLimit: {
+        windowLimit: 100,
+        windowSize: 60,
+        aggregateBy: ["ip", "domain"],
+    },
 };
