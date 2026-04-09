@@ -1,4 +1,12 @@
+'use client';
+
 import InteractiveRillFrame from '../../components/InteractiveRillFrame';
+
+const presetStates = [
+    { label: "Pivot View (24H)", value: "view=pivot&rows=app_site_domain&cols=device_os%2Crequests%2Cavg_bid_floor%2C1d_qps&sort_by=&table_mode=nest" },
+    { label: "Explore View Comparing States (7D)", value: "view=table&tr=P7D&grain=day&compare_dim=device_state&f=device_state+IN+%28%27NY%27%2C%27NJ%27%2C%27ME%27%29" },
+    { label: "Chart View (24H)", value: "view=tdd&grain=day&compare_dim=auction_type&measure=avg_bid_floor&chart_type=line" },
+];
 
 const SimpleIframe = () => {
     const org = 'demo';
@@ -17,7 +25,7 @@ const SimpleIframe = () => {
             </p>
 
             <div className="mb-8">
-                <InteractiveRillFrame org={org} project={project} body={iframeBody} />
+                <InteractiveRillFrame org={org} project={project} body={iframeBody} presetStates={presetStates} />
             </div>
 
 

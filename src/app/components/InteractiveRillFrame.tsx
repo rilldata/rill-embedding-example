@@ -2,6 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+interface PresetState {
+    label: string;
+    value: string;
+}
+
 interface InteractiveRillFrameProps {
     org: string;
     project: string;
@@ -10,9 +15,10 @@ interface InteractiveRillFrameProps {
         attributes?: Record<string, string | number | boolean>;
         [key: string]: unknown;
     };
+    presetStates?: PresetState[];
 }
 
-const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps) => {
+const InteractiveRillFrame = ({ org, project, body, presetStates = [] }: InteractiveRillFrameProps) => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const [iframeUrl, setIframeUrl] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
@@ -23,7 +29,7 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
     useEffect(() => {
         const fetchUrl = async () => {
             try {
-                const res = await fetch('/api/get-iframe', {
+                const res = await fetch('/.netlify/functions/get-iframe', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ org, project, body }),
@@ -89,12 +95,6 @@ const InteractiveRillFrame = ({ org, project, body }: InteractiveRillFrameProps)
         setCurrentState(null);
         sendRequest("getState");
     };
-
-    const presetStates = [
-        { label: "Pivot View (24H)", value: "view=pivot&rows=app_site_domain&cols=device_os%2Crequests%2Cavg_bid_floor%2C1d_qps&sort_by=&table_mode=nest" },
-        { label: "Explore View Comparing States (7D)", value: "view=table&tr=P7D&grain=day&compare_dim=device_state&f=device_state+IN+%28%27NY%27%2C%27NJ%27%2C%27ME%27%29" },
-        { label: "Chart View (24H)", value: "view=tdd&grain=day&compare_dim=auction_type&measure=avg_bid_floor&chart_type=line" }
-    ];
 
     return (
         <div className="space-y-4">
