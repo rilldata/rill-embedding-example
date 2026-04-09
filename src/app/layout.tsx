@@ -31,7 +31,7 @@ const NAV_ITEMS = [
     header: "Embedded getState.setState",
     items: [
       { id: "setState/basic", label: "Basic getState" },
-
+      { id: "setState/usecase", label: "User View Filtered" },
     ]
   },
   {
