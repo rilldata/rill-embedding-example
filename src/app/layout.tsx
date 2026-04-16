@@ -35,6 +35,12 @@ const NAV_ITEMS = [
     ]
   },
   {
+    header: "Shared Chats",
+    items: [
+      { id: "sharedchats/basic", label: "Shared chat across users" },
+    ]
+  },
+  {
     header: "Themes",
     items: [
       { id: "themes/ocean-wave", label: "Ocean Wave" },
