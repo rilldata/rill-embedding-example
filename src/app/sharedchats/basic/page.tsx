@@ -12,9 +12,9 @@ const SharedChatsPage = () => {
         <div className="p-6 bg-white rounded-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Shared Chats</h2>
             <p className="text-gray-600 mb-6">
-                By default, Rill scopes AI chat conversations to individual users — each user gets their own chat history.
-                This page demonstrates how to override that behavior by passing a static <code className="bg-gray-100 px-1 rounded">external_user_id</code> in the iframe request body.
-                When all users share the same <code className="bg-gray-100 px-1 rounded">external_user_id</code>, they see and contribute to the same chat thread.
+                By passing an <code className="bg-gray-100 px-1 rounded">external_user_id</code> in the iframe request body, you enable persistent per-user state.
+                This is currently only used for AI chat history, allowing previous conversations to be accessed across embed sessions.
+                This page demonstrates how to override the default per-user behavior by passing a <em>static</em> value — when all users share the same <code className="bg-gray-100 px-1 rounded">external_user_id</code>, they see and contribute to the same chat thread.
             </p>
 
             <div className="mb-8">
@@ -26,7 +26,7 @@ const SharedChatsPage = () => {
                     <h3 className="text-lg font-semibold text-gray-700 mb-3">How it works</h3>
                     <p className="text-gray-600 mb-3">
                         When requesting an iframe token from the Rill API, include an <code className="bg-gray-100 px-1 rounded">external_user_id</code> field in the request body.
-                        Rill uses this value to namespace chat history — any two requests with the same <code className="bg-gray-100 px-1 rounded">external_user_id</code> will share the same conversation.
+                        Rill uses this value to namespace persistent per-user state — currently AI chat history. Any two requests with the same <code className="bg-gray-100 px-1 rounded">external_user_id</code> will share the same conversation.
                         Setting it to a static string (e.g. <code className="bg-gray-100 px-1 rounded">"shared-user"</code>) means all your end users see a single shared thread.
                     </p>
                     <div className="bg-gray-100 p-3 rounded font-mono text-sm">
@@ -62,7 +62,7 @@ const SharedChatsPage = () => {
                                 <tr>
                                     <td className="px-4 py-3">Per-user chats</td>
                                     <td className="px-4 py-3"><code className="bg-gray-100 px-1 rounded">user-123</code> (dynamic)</td>
-                                    <td className="px-4 py-3">Each user sees only their own history</td>
+                                    <td className="px-4 py-3">Each user has their own persistent state (currently: chat history)</td>
                                 </tr>
                                 <tr>
                                     <td className="px-4 py-3">Shared chats</td>

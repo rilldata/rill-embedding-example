@@ -135,6 +135,18 @@ const Home = () => {
         </ul>
       </div>
 
+      <div className="mb-8">
+        <h3 className="text-lg font-semibold text-gray-700 mb-2">Shared Chats</h3>
+        <ul className="space-y-4">
+          <li>
+            <a href="/sharedchats/basic" className="text-indigo-600 underline">
+              Shared chat across users
+            </a>
+            : Pass a static <code className="bg-gray-100 text-gray-800 px-1 rounded">external_user_id</code> in the iframe request to enable persistent per-user state. This is currently only used for AI chat history — when all users share the same ID, they see and contribute to the same conversation.
+          </li>
+        </ul>
+      </div>
+
       <p className="text-gray-600">
         For information on these features, reach out to us at{' '}
         <a
