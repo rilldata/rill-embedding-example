@@ -6,7 +6,8 @@ export default async (req: Request) => {
     const { org, project, body } = await req.json();
 
     const rillServiceToken = process.env.RILL_SERVICE_TOKEN!;
-    const url = `https://admin.rilldata.com/v1/organizations/${org}/projects/${project}/iframe`;
+    const rillApiHost = process.env.RILL_API_HOST ?? 'https://admin.rilldata.com';
+    const url = `${rillApiHost}/v1/organizations/${org}/projects/${project}/iframe`;
 
     const response = await fetch(url, {
         method: 'POST',
